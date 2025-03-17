@@ -98,7 +98,7 @@ print(f"El nombre del producto es: {nombre_producto} ");
 print(f"El precio unitario es: ${valor}");
 print(f"La cantidad del producto es: {cantidad} ")
 print(f"El descuento aplicado es: {descuento} %")
-print(f"Precio del producto sin descuento {costo_sin_descuento}")
+print(f"Precio del producto sin descuento: ${costo_sin_descuento}")
 
 print(f"El costo total del producto {nombre_producto} es: ${costo_total: .2f}") ## le doy formato para que solo cuente dos decimales del valor 
 
