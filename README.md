@@ -1,47 +1,86 @@
 # Riwi-Barranquilla
 
+Proyecto de Cálculo de Calificaciones y Promedio
 
-# Proyecto de Cálculo de Precios de Productos con Descuento
-Mi proyecto es un programa que permite calcular el costo total de un producto, teniendo en cuenta su precio unitario, la cantidad deseada y un posible descuento. mi código solicita al usuario ingresar los detalles del producto, valida la entrada de datos, y calcula el costo total de la compra, aplicando un descuento si es necesario.
+Mi proyecto es un programa que permite gestionar las calificaciones de un estudiante, calcular su promedio, verificar su estado de aprobación, contar cuántas calificaciones son mayores a un valor específico, y verificar la frecuencia de aparición de una calificación en particular.
+Descripción
 
+El programa solicita al usuario ingresar las calificaciones del estudiante, valida los datos ingresados, y luego ofrece diversas funcionalidades como:
 
-## Descripción de mi Proyecto
-Mi programa interactúa con el usuario para obtener información sobre un producto (nombre, precio, cantidad y descuento), valida los datos de entrada para asegurarse de que sean correctos y realiza cálculos para determinar el costo total de la compra.
+    Calcular el promedio de las calificaciones.
+    Verificar si el estudiante aprobó o reprobó el semestre, comparando el promedio con una calificación de aprobación definida por el usuario.
+    Contar cuántas calificaciones son mayores a un valor específico que el usuario ingresa.
+    Verificar la frecuencia con que se repite una calificación específica en el conjunto de calificaciones.
+    
+Características
 
-Mi programa ofrece la opción de aplicar un descuento sobre el precio total si el usuario lo solicita. Finalmente, muestra un resumen con todos los datos ingresados y el costo total de la compra.
+    Ingreso de calificaciones: El programa permite ingresar varias calificaciones separadas por comas y valida que sean números válidos en el rango de 0 a 100.
+    Cálculo del promedio: Calcula automáticamente el promedio de las calificaciones ingresadas.
+    Estado de aprobación: Permite al usuario definir una calificación mínima para aprobar y compara el promedio con ese valor.
+    Cálculo de calificaciones mayores: Permite contar cuántas calificaciones son mayores a un valor específico proporcionado por el usuario.
+    Frecuencia de calificación: Permite contar cuántas veces aparece una calificación específica en la lista.
+    Menú interactivo: Ofrece un menú simple para interactuar con el programa y realizar las diferentes opciones de forma ordenada.
 
-## Características Principales
+Instrucciones de Uso
 
-- Validación de entradas: Mi programa verifica que el precio y la cantidad sean números válidos y positivos.
-- Opcionalidad de descuento: El usuario puede decidir si aplicar un descuento al precio total de la compra.
-- Cálculo automático: Mi programa calcula el precio final de acuerdo con las entradas del usuario.
-- Formato de salida: El resultado final se presenta con dos decimales para una mayor claridad.
+    Actualizar la lista de calificaciones: Permite ingresar nuevas calificaciones separadas por comas. Si ya existen calificaciones, se borrarán y se actualizarán con las nuevas.
+    Calcular el promedio de las calificaciones: El programa calculará automáticamente el promedio de las calificaciones ingresadas.
+    Verificar el estado de aprobación: El usuario ingresará una calificación de aprobación, y el programa verificará si el promedio de las calificaciones cumple con este valor para determinar si el estudiante aprobó o reprobó el semestre.
+    Contar las calificaciones mayores: El usuario podrá ingresar un valor y el programa mostrará cuántas calificaciones son mayores a ese valor.
+    Verificar la frecuencia de una calificación: El usuario podrá ingresar una calificación y el programa contará cuántas veces se repite en la lista de calificaciones.
+    Salir: Finaliza la ejecución del programa.
 
+Ejemplo de Ejecución
 
-## Cómo Usar Mi Proyecto
+Al ejecutar el programa, el usuario verá un menú interactivo para elegir la opción deseada. A continuación, se muestra un ejemplo de lo que podría ocurrir:
 
-1. Mi programa solicitará que ingreses el **nombre del producto**.
-2. Luego, te pedirá el **precio unitario** del producto. Debes ingresar un número positivo.
-3. A continuación, ingresarás la **cantidad** del producto, también un número positivo.
-4. Se te preguntará si deseas aplicar un **descuento**. Responde con "si" o "no".
-5. Si seleccionas "si", deberás ingresar el **descuento** en porcentaje (un número entre 1 y 100).
-6. Finalmente calculará el costo total y te mostrará un resumen.
+Ingrese las calificaciones (separadas por comas): 5,9,7
+la lista de las calificaciones ingresadas son: [8.0, 9.0, 7.0]
+------------------------------------------------------------
+              Elija una opcion a ejecutar                
+------------------------------------------------------------
+1. Actualizar la lista de Calificaciones
+2. Calcular el Promedio de las calificaiones
+3. Verificar el estado de aprobacion
+4. Contar las calificaciones mayores
+5. Verificar la cantidad de una calificacion ingresada
+6. Salir
+------------------------------------------------------------
+Seleccione una opción: 1
+Ingrese las calificaciones (separadas por comas): 85, 90, 78
+la lista de las calificaciones ingrsadas son:[85.0, 90.0, 78.0]
+------------------------------------------------------------
+              Elija una opcion a ejecutar                
+------------------------------------------------------------
+1. Actualizar la lista de Calificaciones
+2. Calcular el Promedio de las calificaiones
+3. Verificar el estado de aprobacion
+4. Contar las calificaciones mayores
+5. Verificar la cantidad de una calificacion ingresada
+6. Salir
+------------------------------------------------------------
+Seleccione una opción: 2
+El promedio de las calificaciones del estudiante es: 84.33
 
-## Ejemplo de ejecucion
+------------------------------------------------------------
+              Elija una opcion a ejecutar                
+------------------------------------------------------------
+1. Actualizar la lista de Calificaciones
+2. Calcular el Promedio de las calificaiones
+3. Verificar el estado de aprobacion
+4. Contar las calificaciones mayores
+5. Verificar la cantidad de una calificacion ingresada
+6. Salir
+------------------------------------------------------------
+Seleccione una opción: 3
+Ingrese la calificacion aprobatoria de 0 a 100: 60
+El estudiante aprobado el semestre
 
-```text
-Ingrese el nombre del producto: Laptop
-Ingrese el precio unitario del producto: 500
-Ingrese la cantidad del producto: 2
-Se le aplicará descuento (si/no): si
-Ingrese el descuento: 10
-
---------------------------------------------------------
-                    TIENDA RIWI                   
---------------------------------------------------------
-El nombre del producto es: Laptop 
-El precio unitario es: $500
-La cantidad del producto es: 2
-El descuento aplicado es: 10 %
-Precio del producto sin descuento 1000
-El costo total del producto Laptop es: $900.00
+------------------------------------------------------------
+                     Resultados                                       
+------------------------------------------------------------
+Las calificaciones ingresadas fueron: [85.0, 90.0, 78.0]
+El promedio de las calificaciones ingresadas es: 84.33333333333333
+El estado del estudiante mediante el promedio de sus notas fue: Aprobado, paso el semestre
+La calificacion mayore a 80.0 fueron: 2
+La calificacion con mayor frecuencia fue: 0
