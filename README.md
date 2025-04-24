@@ -4,6 +4,8 @@
 📋 Descripción
 
 Este programa permite al usuario registrar un producto, ingresando su nombre, precio unitario y cantidad, con validaciones para asegurar datos válidos. Luego, ofrece la posibilidad de aplicar un descuento (en porcentaje), calcula el total con y sin descuento, y finalmente muestra un resumen completo de la compra.
+
+
 ⚙️ Características
 
     Ingreso del nombre del producto: Captura el nombre como texto.
@@ -17,6 +19,7 @@ Este programa permite al usuario registrar un producto, ingresando su nombre, pr
     Cálculo del costo total: Realiza el cálculo del costo con o sin descuento, según corresponda.
 
     Resumen final de compra: Imprime todos los datos de la operación de forma ordenada.
+    
 
 🧑‍💻 Instrucciones de Uso
 
@@ -31,6 +34,7 @@ Este programa permite al usuario registrar un producto, ingresando su nombre, pr
     Si se aplica, ingresar el porcentaje del descuento (entre 1 y 100).
 
     El programa calculará y mostrará el total de la compra con y sin descuento.
+    
 
 🖥️ Ejemplo de Ejecución
 
@@ -49,6 +53,7 @@ La cantidad del producto es: 3
 El descuento aplicado es: 10 %
 Precio del producto sin descuento: 7500.0
 El costo total del producto Cuaderno es: $ 750.00
+
 
 📊 Resultados Finales
 
