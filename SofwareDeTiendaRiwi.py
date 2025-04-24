@@ -8,20 +8,11 @@ validacion = False
 while True:
     try:
         #Aqui solicito la entrada del usuario
-        precio = valor = input("ingrese el precio unitario del producto: ") 
+        precio = input("ingrese el precio unitario del producto: ") 
         
         #convertierto la entrada a float
-        try:
-            precio = float(precio)
-        except ValueError:
-            print("Ingrese precio valido, que no sea negativo")
-            continue
-
-        # verifico si el valor ingresado es un entero o un decimal
-        if( validacion and precio != int(precio)) and ():
-            print("El valor debe ser un entero, vuela a ingresar nuevamente ")   
-            continue
-
+        precio = float(precio)
+       
         # Verifico que el valor no sea negativo
         if precio > 0:
             # Devuelvo el valor como entero o flotante según se requiera
@@ -86,6 +77,7 @@ if respuesta == "si":
 else:
     print("El descuento no ha sido aplicado")
     costo_total = precio * cantidad #si el descuento no es aplicado se calcula esta formula
+    costo_sin_descuento = precio * cantidad; # si el usuario dice que no se aplica el descuescuento se le mostrara a el usuario el costo total sin descuento
     descuento = 0 # indico que el porcentaje sea 0% al no ser aplicado por el usuario
 
   
@@ -95,10 +87,10 @@ print("--------------------------------------------------------")
 print("                    TIENDA RIWI                   ")
 print("--------------------------------------------------------")
 print(f"El nombre del producto es: {nombre_producto} ");
-print(f"El precio unitario es: ${valor}");
+print(f"El precio unitario es: ${precio}");
 print(f"La cantidad del producto es: {cantidad} ")
 print(f"El descuento aplicado es: {descuento} %")
-print(f"Precio del producto sin descuento {costo_sin_descuento}")
+print(f"Precio del producto sin descuento es: ${costo_sin_descuento}")
 
 print(f"El costo total del producto {nombre_producto} es: ${costo_total: .2f}") ## le doy formato para que solo cuente dos decimales del valor 
 
