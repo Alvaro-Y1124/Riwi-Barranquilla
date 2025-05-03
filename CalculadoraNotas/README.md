@@ -113,11 +113,4 @@ La frecuencia de la calificacion 90 son: 1
 ------------------------------------------------------------
 Seleccione una opción: 6
 saliendo del programa...
-------------------------------------------------------------
-                    Resultados                                       
-------------------------------------------------------------
-Las calificaciones ingresadas fueron: [85.0, 90.0, 78.0]
-El promedio de las calificaciones ingresadas es: 84.33333333333333
-El estado del estudiante mediante el promedio de sus notas fue: Aprobado, paso el semestre
-La calificacion mayore a 50.0 fueron: 3
-La calificacion con mayor frecuencia fue: 1
+
