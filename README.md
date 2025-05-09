@@ -1,71 +1,108 @@
 # Riwi-Barranquilla
 
-🧾 Proyecto de Registro de Productos y Cálculo de Descuentos
-📋 Descripción
+# Riwi - Sistema de Gestión de Inventario
 
-Este programa permite al usuario registrar un producto, ingresando su nombre, precio unitario y cantidad, con validaciones para asegurar datos válidos. Luego, ofrece la posibilidad de aplicar un descuento (en porcentaje), calcula el total con y sin descuento, y finalmente muestra un resumen completo de la compra.
+## Descripción
 
+Riwi es un programa de consola en Python diseñado para gestionar el inventario de productos de forma sencilla y segura. Permite agregar, consultar, actualizar y eliminar productos, así como calcular el valor total del inventario.
 
-⚙️ Características
+## Características
 
-    Ingreso del nombre del producto: Captura el nombre como texto.
+Validación de entradas:
 
-    Validación del precio unitario: Se asegura de que el precio sea un número válido mayor a 0.
+    Nombre de producto sin espacios y no vacío.
+    Precio unitario como flotante positivo.
+    Cantidad como entero positivo.
+   
+Operaciones CRUD:
 
-    Validación de la cantidad: Solo acepta cantidades enteras positivas.
-
-    Aplicación opcional de descuento: Permite al usuario decidir si aplica un descuento entre 1% y 100%.
-
-    Cálculo del costo total: Realiza el cálculo del costo con o sin descuento, según corresponda.
-
-    Resumen final de compra: Imprime todos los datos de la operación de forma ordenada.
+    Agregar producto**: Inserta un nuevo producto si no existe.
+    Consultar producto**: Busca y muestra información de un producto.
+    Actualizar precio**: Modifica el precio de un producto existente.
+    Eliminar producto**: Borra un producto del inventario.
     
+Visualización y cálculo:
 
-🧑‍💻 Instrucciones de Uso
+    Mostrar el inventario completo.
+    Calcular el valor total (precio × cantidad) de todos los productos.
+    Interfaz interactiva**: Menú de opciones que se adapta al estado del inventario.
+    Limpieza de pantalla**: El terminal se limpia antes de mostrar el menú principal.
 
-    Ingresar el nombre del producto.
+## Requisitos
 
-    Ingresar el precio unitario del producto (debe ser un número positivo).
+    Python 3.8 o superior
 
-    Ingresar la cantidad del producto (entero positivo).
+## Estructura del proyecto
 
-    Elegir si se aplicará un descuento.
+    riwi/
+    ├── main.py           # Punto de entrada del programa
+    ├── src/
+    │   └── utils.py      # Módulo con funciones auxiliares y validaciones
+    └── README.md         # Documentación del proyecto
 
-    Si se aplica, ingresar el porcentaje del descuento (entre 1 y 100).
 
-    El programa calculará y mostrará el total de la compra con y sin descuento.
-    
+## Instalación y ejecución
 
-🖥️ Ejemplo de Ejecución
+1. Clona el repositorio:
+
+   git clone [https://github.com/tu-usuario/riwi.git](https://github.com/tu-usuario/riwi.git)
+   cd riwi
+
+
+2. (Opcional) Crea y activa un entorno virtual:
+ 
+python -m venv venv
+# Windows
+env\Scripts\activate
+# macOS/Linux
+source venv/bin/activate
+
+3. Ejecuta el programa:
+
+python main.py
+
+
+## Uso
+
+Al iniciar el programa, se mostrará un menú con las siguientes opciones:
+
+    1. Añadir productos**: Solicita nombre, precio y cantidad para crear un nuevo registro.
+    2. Consultar producto**: Permite buscar un producto por nombre.
+    3. Actualizar precio**: Solicita nombre y nuevo precio para un producto existente.
+    4. Eliminar producto**: Borra un producto del inventario.
+    5. Mostrar inventario**: Muestra la lista completa de productos.
+    6. Calcular valor total**: Muestra la suma total (precio × cantidad) de los productos.
+    7. Salir: Cierra el programa.
+
+Cada opción validará las entradas para evitar datos inválidos.
+
+## Ejemplo de ejecución
+python main.py
+
+Bienvenido al sistema de Gestión de Inventario Riwi
+
+--- Menú de opciones ---
+1. Añadir productos.
+Elija una opción: 1
 
 Ingrese el nombre del producto: Cuaderno
-Ingrese el precio unitario del producto: 2500
+Ingrese el precio del producto: 2500
 Ingrese la cantidad del producto: 3
-¿Se le aplicará descuento? (si/no): si
-Ingrese el descuento: 10
+Cuaderno: 2500.0 x 3 = 7500.0
 
---------------------------------------------------------
-                    TIENDA RIWI                   
---------------------------------------------------------
-El nombre del producto es: Cuaderno
-El precio unitario es: $2500
-La cantidad del producto es: 3
-El descuento aplicado es: 10 %
-Precio del producto sin descuento: 7500.0
-El costo total del producto Cuaderno es: $ 750.00
+--- Menú de opciones ---
+1. Añadir productos.
+2. Consultar producto.
+3. Actualizar precio.
+4. Eliminar producto.
+5. Mostrar inventario.
+6. Calcular valor total del inventario.
+7. Salir.
+Elija una opción: 6
+El valor total del inventario es: 7500.0
 
+--- Menú de opciones ---
+Elija una opción: 7
+Gracias por usar nuestros servicios. ¡Hasta luego!
 
-📊 Resultados Finales
-
-    Producto registrado: Cuaderno
-
-    Precio unitario: $2500
-
-    Cantidad: 3
-
-    Descuento aplicado: 10%
-
-    Precio sin descuento: 7500.0
-
-    Precio total con descuento: $6750.0
 
