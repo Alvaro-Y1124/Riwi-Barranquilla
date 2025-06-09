@@ -1,0 +1,468 @@
+/* style contact*/
+
+/* Contact page specific body styling */
+.body--contact {
+    padding-top: 2rem;
+}
+
+/* Contact page main content */
+.main-content--contact {
+    align-items: flex-start;
+    padding: 2rem 0;
+    margin: 0;
+}
+
+/* ------ MAIN CONTAINER ------ */
+
+/* Contact section container */
+.contact-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* ------ CONTACT INFORMATION ------ */
+
+/* Contact information container */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Contact info header */
+.contact-info__header {
+    margin-bottom: 1rem;
+}
+
+/* Contact info title */
+.contact-info__title {
+    font-size: 2.5rem;
+    width: 30rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+/* Contact info description */
+.contact-info__description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #cbd5e1;
+}
+
+/* ------ EXTERNAL LINKS ------ */
+
+/* External links container */
+.external-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* External link buttons */
+.external-links__button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 2px solid #334155;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    color: #f8fafc;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    background-color: transparent;
+}
+
+/* Hover effect for external link buttons */
+.external-links__button:hover {
+    background-color: #334155;
+    border-color: #5300a0;
+    color: #ffffff;
+    transform: translateX(5px);
+}
+
+/* ------ SOCIAL MEDIA ------ */
+
+/* Social media links container */
+.social-media {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* Social media link styling */
+.social-media__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+}
+
+/* Hover effect for social media links */
+.social-media__link:hover {
+    background-color: #5300a0;
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(83, 0, 160, 0.3);
+}
+
+/* ------ FORM CONTAINER ------ */
+
+/* Contact form article */
+.contact-form {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Contact form header */
+.contact-form__header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* Contact form title */
+.contact-form__title {
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+/* ------ FORM STRUCTURE ------ */
+
+/* Form container */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Form row for side-by-side inputs */
+.form__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+/* Form group container */
+.form__group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Full width form group */
+.form__group--full-width {
+    grid-column: 1 / -1;
+}
+
+/* ------ FORM ELEMENTS ------ */
+
+/* Form labels */
+.form__label {
+    font-size: 0.9rem;
+    color: #cbd5e1;
+    font-weight: 500;
+}
+
+/* Form inputs */
+.form__input {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 0.75rem;
+    color: #f8fafc;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+/* Focus state for form inputs */
+.form__input:focus {
+    outline: none;
+    border-color: #5300a0;
+    box-shadow: 0 0 0 3px rgba(83, 0, 160, 0.1);
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Form textarea */
+.form__textarea {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 0.75rem;
+    color: #f8fafc;
+    font-size: 1rem;
+    resize: vertical;
+    min-height: 120px;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+/* Focus state for textarea */
+.form__textarea:focus {
+    outline: none;
+    border-color: #5300a0;
+    box-shadow: 0 0 0 3px rgba(83, 0, 160, 0.1);
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Form input placeholders */
+.form__input::placeholder,
+.form__textarea::placeholder {
+    color: #94a3b8;
+}
+
+/* Form submit button */
+.form__submit-button {
+    background: linear-gradient(135deg, #5300a0, #7f42a7);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+/* Hover effect for submit button */
+.form__submit-button:hover {
+    background: linear-gradient(135deg, #6600c5, #8a4bae);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(83, 0, 160, 0.3);
+}
+
+/* ------ TABLET AND MEDIUM SCREENS (1024px) ------ */
+@media (max-width: 1300px) {
+
+    .main-content--contact{
+        margin: 0
+        ;
+    }
+    /* Reduce spacing in contact section */
+    .contact-section {
+        gap: 2rem;
+        max-width: 900px;
+        padding: 0 2rem;
+    }
+    
+    /* Adjust contact info title */
+    .contact-info__title {
+        font-size: 2.2rem;
+        width: auto;
+    }
+    
+    /* Reduce form padding */
+    .contact-form {
+        padding: 1.5rem;
+    }
+    
+    /* Adjust form title */
+    .contact-form__title {
+        font-size: 1.8rem;
+    }
+}
+
+/* ------ MOBILE AND SMALL SCREENS (768px) ------ */
+@media (max-width: 768px) {
+    /* Change to single column layout */
+    .contact-section {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 0 1rem;
+        max-width: 100%;
+    }
+    
+    /* Adjust main content */
+    .main-content--contact {
+        padding: 1rem 0;
+        margin-top: auto;
+    }
+    
+    /* Reduce body padding */
+    .body--contact {
+        padding-top: 1rem;
+    }
+    
+    /* ------ MOBILE CONTACT INFORMATION ------ */
+    
+    /* Reduce spacing in contact info */
+    .contact-info {
+        gap: 1.5rem;
+        text-align: center;
+    }
+    
+    /* Adjust title for mobile */
+    .contact-info__title {
+        font-size: 1.8rem;
+        width: auto;
+        text-align: center;
+        margin: 0 auto 1rem;
+    }
+    
+    /* Adjust description for mobile */
+    .contact-info__description {
+        font-size: 1rem;
+        text-align: center;
+        max-width: 90%;
+        margin: 0 auto;
+    }
+    
+    /* ------ MOBILE EXTERNAL LINKS ------ */
+    
+    /* Center external links */
+    .external-links {
+        align-items: center;
+        width: 100%;
+    }
+    
+    /* Adjust external link buttons for mobile */
+    .external-links__button {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+        text-align: center;
+        padding: 1rem;
+    }
+    
+    /* Remove transform on mobile for external links */
+    .external-links__button:hover {
+        transform: none;
+    }
+    
+    /* ------ MOBILE SOCIAL MEDIA ------ */
+    
+    /* Center social media */
+    .social-media {
+        justify-content: center;
+        margin-top: 1.5rem;
+        gap: 1.5rem;
+    }
+    
+    /* Increase social media icon size */
+    .social-media__link {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+    }
+    
+    /* Remove transform on mobile for social links */
+    .social-media__link:hover {
+        transform: translateY(-2px);
+    }
+    
+    /* ------ MOBILE FORM ------ */
+    
+    /* Reduce form padding */
+    .contact-form {
+        padding: 1.5rem 1rem;
+        margin: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    /* Adjust form title for mobile */
+    .contact-form__title {
+        font-size: 1.6rem;
+        text-align: center;
+    }
+    
+    /* Change to single column in form rows */
+    .form__row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    /* Reduce form spacing */
+    .form {
+        gap: 1rem;
+    }
+    
+    /* Adjust form inputs for mobile */
+    .form__input,
+    .form__textarea {
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+    
+    /* Adjust submit button for mobile */
+    .form__submit-button {
+        width: 100%;
+        padding: 1rem;
+        font-size: 1rem;
+        transform: none;
+    }
+    
+    /* Remove transform on mobile for submit button */
+    .form__submit-button:hover {
+        transform: translateY(-1px);
+    }
+    
+    /* Reduce textarea minimum height */
+    .form__textarea {
+        min-height: 100px;
+    }
+}
+
+/* ------ EXTRA SMALL SCREENS (480px) ------ */
+@media (max-width: 480px) {
+    /* Further reduce padding */
+    .contact-section {
+        padding: 0 0.5rem;
+        gap: 1.5rem;
+    }
+    
+    /* Smaller title */
+    .contact-info__title {
+        font-size: 1.5rem;
+    }
+    
+    /* Smaller description */
+    .contact-info__description {
+        font-size: 0.9rem;
+    }
+    
+    /* Reduce form padding further */
+    .contact-form {
+        padding: 1rem 0.5rem;
+    }
+    
+    /* Smaller form title */
+    .contact-form__title {
+        font-size: 1.4rem;
+    }
+    
+    /* Reduce gap in social media */
+    .social-media {
+        gap: 1rem;
+    }
+    
+    /* Smaller social media icons */
+    .social-media__link {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+    
+    /* Adjust external links for very small screens */
+    .external-links__button {
+        max-width: 100%;
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+}

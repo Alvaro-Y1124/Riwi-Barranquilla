@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character encoding and responsive design -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width ">
+    <title>Alvaro Noriega - Portfolio</title>
+    <!-- External CSS libraries -->
+    <link rel="stylesheet" href="./../assets/style/style.css">
+    <link  rel="icon" href="./../assets/img/letra-a.png">
+
+</head>
+
+<body class="body">
+    <!-- Background gradient image -->
+    <img class="background-gradient" src="./../assets/img/gradient.png" alt="gradient background">
+    <!-- Blur layer effect -->
+    <section class="blur-layer"></section>
+
+    <!-- Main container wrapper -->
+    <section class="main-container">
+        <!-- Header section with navigation -->
+        <header class="header_index">
+            <!-- Site logo/title -->
+            <h1 class="header__logo">Alvaro</h1>
+            <!-- Main navigation -->
+            <nav class="header__nav">
+                <a href="./../pages/index.html" class="header__nav-link">Home</a>
+                <a href="./../pages/about.html" class="header__nav-link">About</a>
+                <a href="./../pages/hobbies.html" class="header__nav-link">Hobbies</a>
+                <a href="./../pages/contact.html" class="header__nav-link">Contact</a>
+            </nav>
+        </header>
+
+        <!-- Main content area -->
+        <main class="main-content">
+            <!-- Hero section with animated elements -->
+            <section class="hero-section">
+                <!-- Introduction tag -->
+                <section class="intro-tag">
+                    <section class="intro-tag__content">INTRODUCTION &wedge;</section>
+                </section>
+
+                <!-- Main heading -->
+                <h2 class="hero-title">
+                    about me. <br> My information
+                </h2>
+
+                <!-- Action buttons -->
+                <section class="action-buttons">
+                    <a href="./../pages/about.html" class="button button--primary">about me &gt;</a>
+                    <a href="./../pages/hobbies.html" class="button button--secondary">hobbies &gt;</a>
+                    <a href="./../pages/contact.html" class="button button--tertiary">contact &gt;</a>
+                </section>
+            </section>
+
+            <!-- 3D model aside section -->
+            <aside class="model-section">
+                <spline-viewer  
+                    class="model-viewer" 
+                    url="https://prod.spline.design/eh85US4Tk2GpBKsb/scene.splinecode">
+                </spline-viewer>
+            </aside>
+        </main>
+
+        <!-- Footer section -->
+        <footer class="footer">
+            <p class="footer__copyright">&copy; Developed by Alvaro Noriega - All rights reserved</p>
+        </footer>
+    </section>
+
+    <!-- External JavaScript libraries -->
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.96/build/spline-viewer.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    
+    <!-- Animation initialization script -->
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character encoding and responsive design -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me - Alvaro Noriega</title>
+    <!-- Font Awesome for social media icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="./../assets/style/style.css">
+    <link rel="stylesheet" href="./../assets/style/contact.css">
+    <link  rel="icon" href="./../assets/img/letra-a.png">
+</head>
+
+<body class="body body--contact">
+    <!-- Background gradient image -->
+    <img class="background-gradient" src="./../assets/img/gradient.png" alt="gradient background">
+    <!-- Blur layer effect -->
+    <section class="blur-layer"></section>
+
+    <!-- Main container wrapper -->
+    <section class="main-container">
+        <!-- Header section with navigation -->
+        <header class="header_index">
+            <h1 class="header__logo">Alvaro</h1>
+            <!-- Main navigation -->
+            <nav class="header__nav">
+                <a class="header__nav-link" href="./../pages/index.html">Home</a>
+                <a class="header__nav-link" href="./../pages/about.html">About</a>
+                <a class="header__nav-link" href="./../pages/hobbies.html">Hobbies</a>
+                <a class="header__nav-link header__nav-link--active" href="./../pages/contact.html">Contact</a>
+            </nav>
+        </header>
+
+        <!-- Main content area -->
+        <main class="main-content main-content--contact">
+            <!-- Contact section -->
+            <section class="contact-section">
+                <!-- Contact information aside -->
+                <aside class="contact-info">
+                    <!-- Contact info header -->
+                    <header class="contact-info__header">
+                        <h2 class="contact-info__title">Contact us</h2>
+                        <p class="contact-info__description">
+                            Get in touch with me for any inquiries, collaborations, or just to say hello. 
+                            I'm always excited to connect with fellow developers and tech enthusiasts.
+                        </p>
+                    </header>
+
+                    <!-- External links section -->
+                    <section class="external-links">
+                        <a href="#" class="external-links__button">
+                            <i class="fab fa-github"></i> Contribute on GitHub
+                        </a>
+                        <a href="#" class="external-links__button">
+                            <i class="fas fa-users"></i> Join our community
+                        </a>
+                    </section>
+
+                    <!-- Social media links -->
+                    <section class="social-media">
+                        <a href="#" class="social-media__link" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-media__link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-media__link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </section>
+                </aside>
+
+                <!-- Contact form article -->
+                <article class="contact-form">
+                    <!-- Form header -->
+                    <header class="contact-form__header">
+                        <h2 class="contact-form__title">Send me a message</h2>
+                    </header>
+
+                    <!-- Contact form -->
+                    <form class="form" action="#" method="POST">
+                        <!-- First row of form fields -->
+                        <section class="form__row">
+                            <section class="form__group">
+                                <label class="form__label" for="contact-name">Name</label>
+                                <input class="form__input" 
+                                    type="text" 
+                                    id="contact-name" 
+                                    name="name"
+                                    placeholder="John Carter" 
+                                    required>
+                            </section>
+                            <section class="form__group">
+                                <label class="form__label" for="contact-email">Email</label>
+                                <input class="form__input" 
+                                    type="email" 
+                                    id="contact-email" 
+                                    name="email"
+                                    placeholder="example@youremail.com" 
+                                    required>
+                            </section>
+                        </section>
+
+                        <!-- Second row of form fields -->
+                        <section class="form__row">
+                            <section class="form__group">
+                                <label class="form__label" for="contact-phone">Phone</label>
+                                <input class="form__input" 
+                                    type="tel" 
+                                    id="contact-phone" 
+                                    name="phone"
+                                    placeholder="123-456-7890">
+                            </section>
+                            <section class="form__group">
+                                <label class="form__label" for="contact-subject">Subject</label>
+                                <input class="form__input" 
+                                    type="text" 
+                                    id="contact-subject" 
+                                    name="subject"
+                                    placeholder="Ex. Careers" 
+                                    required>
+                            </section>
+                        </section>
+
+                        <!-- Message field -->
+                        <section class="form__group form__group--full-width">
+                            <label class="form__label" for="contact-message">Message</label>
+                            <textarea class="form__textarea" 
+                                id="contact-message" 
+                                name="message"
+                                rows="6" 
+                                placeholder="Type your message here..." 
+                                required></textarea>
+                        </section>
+
+                        <!-- Submit button -->
+                        <button class="form__submit-button" type="submit">Send message</button>
+                    </form>
+                </article>
+            </section>
+        </main>
+
+        <!-- Footer section -->
+        <footer class="footer">
+            <p class="footer__copyright">&copy; Developed by Alvaro Noriega - All rights reserved</p>
+        </footer>
+    </section>
+</body>
+</html>

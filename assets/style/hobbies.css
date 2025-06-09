@@ -1,0 +1,206 @@
+/* HOBBIES PAGE STYLES */
+
+/* Hobbies page specific body styling */
+.body--hobbies {
+    padding-top: 2rem;
+}
+
+
+/* Hobbies page main content */
+.main-content--hobbies {
+    display: flex;
+    align-items: center;
+    padding: 2rem 0;
+    justify-content: center;
+    position: relative;
+    top: 50%;
+    margin: 0;
+}
+
+/* Hobbies section container */
+.hobbies-section {
+    max-width: 1200px;
+}
+
+/* Hobbies section header */
+.hobbies-section__header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* Hobbies section title */
+.hobbies-section__title {
+    font-size: 3rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+/* Hobbies section description */
+.hobbies-section__description {
+    font-size: 1.2rem;
+    color: #cbd5e1;
+    margin-bottom: 2rem;
+}
+
+/* Hobbies list container */
+.hobbies-list {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    margin-top: 2rem;
+    width: 100%;
+}
+
+/* Individual hobby item */
+.hobby-item {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 1;
+}
+
+.hobby-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Hobby item header */
+.hobby-item__header {
+    margin-bottom: 1.5rem;
+}
+
+/* Hobby item title */
+.hobby-item__title {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+/* Hobby item figure */
+.hobby-item__figure {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Hobby item image */
+.hobby-item__image {
+    width: 300px;
+    height: auto;
+    display: grid;
+    transition: transform 0.3s ease;
+}
+
+.hobby-item:hover .hobby-item__image {
+    transform: scale(1.1);
+}
+
+/* Responsive design para pantallas menores a 1300px */
+@media (max-width: 1300px) {
+
+    /* Main content hobbies tablet positioning */
+    .main-content--hobbies {
+        padding: 1rem;
+        margin-top: auto;
+    }
+
+    /* Hobbies section title tablet sizing */
+    .hobbies-section__title {
+        font-size: 2.5rem;
+    }
+
+    /* Hobbies section description tablet sizing */
+    .hobbies-section__description {
+        font-size: 1.1rem;
+    }
+
+    /* Hobbies list tablet gap adjustment */
+    .hobbies-list {
+        flex-direction: row;
+        gap: 2rem;
+        margin-top: 1.5rem;
+        
+        
+    }
+
+    /* Hobby item tablet padding */
+    .hobby-item {
+        padding: 1.5rem;
+    }
+
+    /* Hobby item title tablet sizing */
+    .hobby-item__title {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 1129px){
+    .hobbies-list{
+        flex-direction: column;
+        gap: 2rem;
+        margin-top: 1.5rem;
+    }
+}
+
+/* Responsive design para pantallas menores a 768px */
+@media (max-width: 768px) {
+    /* Main content hobbies mobile reset positioning */
+    .main-content--hobbies {
+        top: 0;
+        left: 0;
+        padding: 1rem;
+        margin-top: 2rem;
+    }
+
+    /* Hobbies section header mobile margin */
+    .hobbies-section__header {
+        margin-bottom: 2rem;
+    }
+
+    /* Hobbies section title mobile sizing */
+    .hobbies-section__title {
+        font-size: 2rem;
+    }
+
+    /* Hobbies section description mobile sizing */
+    .hobbies-section__description {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Hobbies list mobile column layout */
+    .hobbies-list {
+        flex-direction: column;
+        gap: 2rem;
+        margin-top: 1.5rem;
+        width: 19rem;
+    }
+
+    /* Hobby item mobile padding */
+    .hobby-item {
+        padding: 1.5rem;
+        margin: 0;
+    }
+
+    /* Hobby item header mobile margin */
+    .hobby-item__header {
+        margin-bottom: 1rem;
+    }
+
+    /* Hobby item title mobile sizing */
+    .hobby-item__title {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Hobby item hover mobile effect reduction */
+    .hobby-item:hover {
+        transform: translateY(-5px);
+    }
+}

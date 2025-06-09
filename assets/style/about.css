@@ -1,0 +1,227 @@
+/* ABOUT PAGE STYLES */
+
+/* About page specific body styling */
+.body--about {
+    padding-top: 2rem;
+}
+
+
+
+/* About page main content */
+.main-content--about {
+    display: flex;
+    align-items: flex-start;
+    padding: 2rem 0;
+    justify-content: center;
+    position: relative;
+    top: 50%;
+    margin: 0;
+}
+
+
+/* About section container */
+.about-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* About section header */
+.about-section__header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* About section title */
+.about-section__title {
+    font-size: 3rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+/* About section content layout */
+.about-section__content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+/* Personal information article */
+.personal-info {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Personal description text */
+.personal-info__description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: #cbd5e1;
+    width: 100%;
+}
+
+/* Programming languages section */
+.programming-languages {
+    margin-top: 2rem;
+}
+
+/* Programming languages title */
+.programming-languages__title {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+/* Programming languages list */
+.programming-languages__list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+/* Programming language items */
+.programming-languages__item {
+    background: linear-gradient(135deg, #5300a0, #7f42a7);
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 500;
+    transition: transform 0.3s ease;
+}
+
+.programming-languages__item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(83, 0, 160, 0.3);
+}
+
+.proyect{
+    text-align: center;
+    margin-top: 2em;
+}
+.image_proyect{
+    width: 70%;
+    height: auto;
+    display: grid;
+    border-radius: 2em;
+    position: relative;
+    left: 15%;
+    top: 1em;
+}
+/* Profile image section */
+.profile-image {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Profile image figure */
+.profile-image__figure {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.profile-image__figure:hover {
+    transform: scale(1.05);
+}
+
+/* Profile image styling */
+.profile-image__img {
+    width: 250px;
+    height: 400px;
+    display: block;
+    max-width: 300px;
+}
+
+/* Responsive design para pantallas menores a 1300px */
+@media (max-width: 1300px) {
+
+    /* Main content tablet positioning */
+    .main-content--about {
+        left: 15%;
+        padding: 1rem;
+        margin-top: 0;
+    }
+
+    /* About section content tablet spacing */
+    .about-section__content {
+        gap: 2rem;
+        width: 80%;
+    }
+
+    /* Personal info description tablet width */
+    .personal-info__description {
+        max-width: 100%;
+    }
+
+    
+}
+
+/* Responsive design para pantallas menores a 768px */
+@media (max-width: 768px) {
+    
+    
+    /* Main content mobile reset positioning */
+    .main-content--about {
+        top: 0;
+        left: 0;
+        padding: 1rem;
+        margin: 0;
+        margin-top: 2rem;
+        justify-content: center;
+        align-items: center;
+    
+    }
+
+    /* About section content mobile single column */
+    .about-section__content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+        width: 85%;
+    }
+
+    /* About section title mobile sizing */
+    .about-section__title {
+        font-size: 2rem;
+    }
+    
+    /* Personal info mobile padding */
+    .personal-info {
+        padding: 1.5rem;
+    }
+    
+    /* Personal info description mobile sizing */
+    .personal-info__description {
+        font-size: 1rem;
+        width: 100%;
+        max-width: 100%;
+    
+    }
+    
+    /* Programming languages title mobile sizing */
+    .programming-languages__title {
+        font-size: 1.2rem;
+    }
+
+    /* Programming languages list mobile centering */
+    .programming-languages__list {
+        justify-content: center;
+    }
+    
+    /* Profile image mobile sizing */
+    .profile-image__img {
+        width: 200px;
+        height: 320px;
+        max-width: 250px;
+    }
+}
