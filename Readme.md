@@ -1,5 +1,5 @@
 Alvaro Noriega - Full Stack Developer Portfolio
-![Portfolio Screenshot](./assets/img/Captura%20desde%202025-06-09%2011-49-45.png)
+![Portfolio Screenshot](./assets/img/Myportafolio.png)
 
 Project Overview
 This is a responsive personal portfolio website that showcases my skills, work and track record as a Full Stack developer. The page features a contemporary design with smooth transitions and adjusts to any screen size.
