@@ -57,7 +57,7 @@ No installation required - this is a static website:
 
     Clone the repository:
 
-     git clone https://github.com/tunombre/portfolio.git  
+     git clone https://github.com/Alvaro-Y1124/Riwi-Barranquilla/tree/modulo2-week4
 
 Open index.html in your browser
 Responsive Breakpoints
