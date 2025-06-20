@@ -1,0 +1,430 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Main body styling with background and font */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: beige;
+  line-height: 1.6;
+}
+
+/* Header container with flexbox layout */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: wheat;
+  padding: 10px 25px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Main header title styling */
+.header-h1 {
+  font-size: 1.8rem;
+  color: #333;
+}
+
+/* Navigation list container with horizontal layout */
+.nav .nav-list {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+/* Navigation links styling */
+.nav .nav-list .nav-list-li a {
+  color: #000;
+  text-decoration: none;
+  padding: 8px 16px;
+  transition: all 0.3s ease;
+}
+
+/* Navigation links hover effect */
+.nav .nav-list .nav-list-li a:hover {
+  background-color: aliceblue;
+  border-radius: 2em;
+  
+}
+
+/* Main content area styling */
+.main {
+  background-color: antiquewhite;
+  padding: 2rem 1rem;
+}
+
+/* Wake up call section styling */
+.wake-up-call {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+/* Services section title */
+.wake-up-call-h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+/* Services section description */
+.wake-up-call-p {
+  font-size: 1.2rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Services grid container */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Individual service item styling */
+.item-1,
+.item-2,
+.item-3 {
+  text-align: center;
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+/* Service item hover effect */
+.item-1:hover,
+.item-2:hover,
+.item-3:hover {
+  transform: translateY(-5px);
+}
+
+/* Service 1 background color */
+.item-1 {
+  background-color: aqua;
+}
+
+/* Service 2 background color */
+.item-2 {
+  background-color: aquamarine;
+}
+
+/* Service 3 background color */
+.item-3 {
+  background-color: rgba(245, 212, 169, 0.842);
+}
+
+/* Service item titles */
+.item-1 h3,
+.item-2 h3,
+.item-3 h3 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+/* Service images general styling */
+.imagen1,
+.imagen2,
+.imagen3 {
+  width: 100%;
+  max-width: 280px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Location section container */
+.location {
+  background-color: #f8f9fa;
+  padding: 3rem 1rem;
+  margin-top: 2rem;
+}
+
+/* Location content grid layout */
+.location-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+/* Location text container */
+.location-text {
+  text-align: center;
+}
+
+/* Location title styling */
+.location h4 {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+  line-height: 1.4;
+}
+
+/* Location image styling */
+.location-image {
+  width: 100%;
+  max-width: 400px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  display: block;
+}
+
+/* Map container styling */
+.map-container {
+  text-align: center;
+}
+
+/* Embedded map styling */
+.map {
+  width: 100%;
+  max-width: 500px;
+  height: 300px;
+  border: 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer styling */
+.footer {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: blanchedalmond;
+  margin-top: 2rem;
+  border-top: 2px solid #ddd;
+}
+
+/* Footer text styling */
+.footer-p {
+  color: #000000;
+  font-size: 1rem;
+}
+
+
+
+
+
+/* Tablet responsive design - screens 768px to 1024px */
+@media (max-width: 1024px) {
+  /* Reduce header padding on tablets */
+  .header {
+    padding: 15px 20px;
+  }
+
+  /* Smaller header title on tablets */
+  .header-h1 {
+    font-size: 1.5rem;
+  }
+
+  /* Reduce navigation gap on tablets */
+  .nav .nav-list {
+    gap: 15px;
+  }
+
+  /* Smaller services title on tablets */
+  .wake-up-call-h2 {
+    font-size: 2rem;
+  }
+
+  /* Adjust services grid for tablets */
+  .container {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  /* Reduce service item height on tablets */
+  .item-1,
+  .item-2,
+  .item-3 {
+    min-height: 300px;
+    padding: 1.2rem;
+  }
+}
+
+/* Mobile responsive design - screens up to 768px */
+@media (max-width: 768px) {
+  /* Stack header elements vertically on mobile */
+  .header {
+    flex-direction: column;
+    padding: 15px;
+    gap: 15px;
+  }
+
+  /* Center header title on mobile */
+  .header-h1 {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  /* Stack navigation vertically on mobile */
+  .nav .nav-list {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  /* Full width navigation links on mobile */
+  .nav .nav-list .nav-list-li a {
+    display: block;
+    padding: 10px;
+  }
+
+  /* Reduce main content padding on mobile */
+  .main {
+    padding: 1.5rem 0.5rem;
+  }
+
+  /* Smaller services title on mobile */
+  .wake-up-call-h2 {
+    font-size: 1.8rem;
+  }
+
+  /* Smaller services description on mobile */
+  .wake-up-call-p {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  /* Single column layout for services on mobile */
+  .container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 0.5rem;
+  }
+
+  /* Adjust service items for mobile */
+  .item-1,
+  .item-2,
+  .item-3 {
+    min-height: 280px;
+    padding: 1rem;
+  }
+
+  /* Stack location content vertically on mobile */
+  .location-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  /* Smaller location title on mobile */
+  .location h4 {
+    font-size: 1.1rem;
+    padding: 0 1rem;
+  }
+
+  /* Responsive location image on mobile */
+  .location-image {
+    max-width: 100%;
+    height: 200px;
+  }
+
+  /* Responsive map on mobile */
+  .map {
+    height: 250px;
+    max-width: 100%;
+  }
+
+  /* Reduce footer padding on mobile */
+  .footer {
+    padding: 1rem;
+  }
+}
+
+/* Small mobile responsive design - screens up to 480px */
+@media (max-width: 480px) {
+  /* Extra small header title */
+  .header-h1 {
+    font-size: 1.1rem;
+  }
+
+  /* Extra small services title */
+  .wake-up-call-h2 {
+    font-size: 1.5rem;
+  }
+
+  /* Extra small services description */
+  .wake-up-call-p {
+    font-size: 0.9rem;
+  }
+
+  /* Reduce service item height for small screens */
+  .item-1,
+  .item-2,
+  .item-3 {
+    min-height: 250px;
+    padding: 0.8rem;
+  }
+
+  /* Smaller service item titles */
+  .item-1 h3,
+  .item-2 h3,
+  .item-3 h3 {
+    font-size: 1.2rem;
+  }
+
+  /* Smaller location title */
+  .location h4 {
+    font-size: 1rem;
+  }
+
+  /* Reduce map height for small screens */
+  .map {
+    height: 200px;
+  }
+}
+
+/* Large desktop responsive design - screens above 1200px */
+@media (min-width: 1200px) {
+  /* Larger header on large screens */
+  .header-h1 {
+    font-size: 2rem;
+  }
+
+  /* Larger services title on large screens */
+  .wake-up-call-h2 {
+    font-size: 3rem;
+  }
+
+  /* Larger services description on large screens */
+  .wake-up-call-p {
+    font-size: 1.3rem;
+  }
+
+  /* Three column layout for services on large screens */
+  .container {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1400px;
+  }
+
+  /* Taller service items on large screens */
+  .item-1,
+  .item-2,
+  .item-3 {
+    min-height: 400px;
+  }
+
+  /* Larger map on large screens */
+  .map {
+    height: 400px;
+  }
+}
