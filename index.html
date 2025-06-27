@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management - Advanced System</title>
+    <link rel="stylesheet" href="assets/style/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- MAIN HEADER WITH TITLE AND DESCRIPTION -->
+        <header class="header">
+            <h1>Product Management System</h1>
+        </header>
+
+        <!-- PRODUCT DATA INPUT SECTION -->
+        <div class="input-section">
+            <div class="form-group">
+                <label for="nombre_producto">Product Name:</label>
+                <input type="text" id="nombre_producto" placeholder="Enter the product name">
+            </div>
+            
+            <div class="form-group">
+                <label for="precio_producto">Product Price:</label>
+                <input type="number" id="precio_producto" placeholder="Enter the price" step="0.01" min="0">
+            </div>
+            
+            <div class="form-group">
+                <label for="categoria_producto">Product Category:</label>
+                <select id="categoria_producto">
+                    <option value="">Select a category</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Clothes">Clothes</option>
+                    <option value="Home">Home</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Books">Books</option>
+                    <option value="Food">Food</option>
+                </select>
+            </div>
+
+            <!-- ACTION BUTTONS -->
+            <button class="btn btn-primary" onclick="agregarProducto()">Add Product</button>
+            <button class="btn btn-secondary" id="btn_mostrar" onclick="mostrarDatos()">Show Products</button>
+
+            <!-- SUCCESS MESSAGE -->
+            <div class="message success" id="mensaje_confirmacion">
+                Product added successfully! Now you can see all products.
+            </div>
+        </div>
+
+        <!-- RESULTS AND DATA DISPLAY SECTION -->
+        <div class="results-section" id="seccion_resultados">
+            <div class="data-container">
+                <h3>Products (Object)</h3>
+                <div id="productos_objeto"></div>
+            </div>
+            
+            <div class="data-container">
+                <h3>Unique Products (Set)</h3>
+                <div id="productos_set"></div>
+            </div>
+            
+            <div class="data-container">
+                <h3>Categories (Map)</h3>
+                <div id="productos_map"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="assets/src/gestion_datos.js"></script>
+</body>
+</html>
