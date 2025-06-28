@@ -2,15 +2,15 @@
 GLOBAL VARIABLES AND DATA STRUCTURES:
     This block starts the main data structures that will be
     used to store product information:
-    - productos: Object that stores all products with unique ID
-    - productosSet: Set to make sure products are unique
-    - categoriasMap: Map to connect categories with products
-    - siguiente_id: Counter to make unique IDs automatically
+    - products: Object that stores all products with unique ID
+    - productsSet: Set to make sure products are unique
+    - categoriesMap: Map to connect categories with products
+    - nextId: Counter to make unique IDs automatically
 */
-let productos = {}; // Main object to store products
-let productosSet = new Set(); // Set to avoid duplicates
-let categoriasMap = new Map(); // Map for categories and products
-let siguiente_id = 1; // ID counter that goes up
+let products = {}; // Main object to store products
+let productsSet = new Set(); // Set to avoid duplicates
+let categoriesMap = new Map(); // Map for categories and products
+let nextId = 1; // ID counter that goes up
 
 /*
 MAIN FUNCTION: ADD PRODUCT
@@ -24,37 +24,42 @@ MAIN FUNCTION: ADD PRODUCT
 */
 function agregarProducto() {
 // Get the values from the form fields
-  const nombre = document.getElementById("nombre_producto").value.trim();
-  const precio = parseFloat(document.getElementById("precio_producto").value);
-  const categoria = document.getElementById("categoria_producto").value;
+  const name = document.getElementById("nombre_producto").value.trim();
+  const price = parseFloat(document.getElementById("precio_producto").value);
+  const category = document.getElementById("categoria_producto").value;
 
 // Check required fields
-  if (!nombre || isNaN(precio) || precio <= 0 || !categoria) {
+  if (!name || isNaN(price) || price <= 0 || !category) {
     alert("Please complete all fields correctly.");
     return;
   }
 
 // Create product object with unique ID that goes up
-  const producto = {
-    id: siguiente_id++,
-    nombre: nombre,
-    precio: precio,
-    categoria: categoria,
+  const product = {
+    id: nextId++,
+    name: name,
+    price: price,
+    category: category,
   };
 
 // STEP 1: Store in the main object
-  productos[`producto_${producto.id}`] = producto;
+  products[`product_${product.id}`] = product;
 
 // STEP 2: Add to Set (automatically avoids duplicates)
-  productosSet.add(JSON.stringify(producto));
+const uniqueKey = `${product.name}`;
+if (productsSet.has(uniqueKey)) {
+    alert("This product already exists!");
+    return;
+}
+productsSet.add(uniqueKey);
 
 // STEP 3: Store in Map connecting category with product
-  if (categoriasMap.has(categoria)) {
+  if (categoriesMap.has(category)) {
     // If category already exists, add product to array
-    categoriasMap.get(categoria).push(producto.nombre);
+    categoriesMap.get(category).push(product.name);
   } else {
 // If it's a new category, create new array with the product
-    categoriasMap.set(categoria, [producto.nombre]);
+    categoriesMap.set(category, [product.name]);
   }
 
 // Show success message with animation
@@ -73,12 +78,12 @@ FUNCTION: SHOW SUCCESS MESSAGE:
     The message disappears automatically after 3 seconds
 */
 function mostrarMensajeConfirmacion() {
-  const mensaje = document.getElementById("mensaje_confirmacion");
-  mensaje.classList.add("show");
+  const message = document.getElementById("mensaje_confirmacion");
+  message.classList.add("show");
 
 // Hide message after 3 seconds
   setTimeout(() => {
-    mensaje.classList.remove("show");
+    message.classList.remove("show");
   }, 3000);
 }
 
@@ -88,10 +93,10 @@ FUNCTION: ENABLE SHOW BUTTON
     Changes the button style from disabled to enabled
 */
 function habilitarBotonMostrar() {
-  const btnMostrar = document.getElementById("btn_mostrar");
-  btnMostrar.classList.add("enabled");
-  btnMostrar.style.opacity = "1";
-  btnMostrar.style.cursor = "pointer";
+  const showBtn = document.getElementById("btn_mostrar");
+  showBtn.classList.add("enabled");
+  showBtn.style.opacity = "1";
+  showBtn.style.cursor = "pointer";
 }
 
 /*
@@ -116,7 +121,7 @@ MAIN FUNCTION: SHOW DATA:
 */
 function mostrarDatos() {
 // Check that products exist before showing
-  if (Object.keys(productos).length === 0) {
+  if (Object.keys(products).length === 0) {
     alert("No products to show. Add at least one product.");
     return;
   }
@@ -141,22 +146,22 @@ FUNCTION: SHOW PRODUCTS OBJECT (for...in):
     This method access object properties directly
 */
 function mostrarProductosObjeto() {
-  const contenedor = document.getElementById("productos_objeto");
-  contenedor.innerHTML = ""; // Clean previous content
+  const container = document.getElementById("productos_objeto");
+  container.innerHTML = ""; // Clean previous content
 
 // Loop through products object using for...in
-  for (let clave in productos) {
-    const producto = productos[clave];
+  for (let key in products) {
+    const product = products[key];
 
     const itemDiv = document.createElement("div");
     itemDiv.className = "data-item";
     itemDiv.innerHTML = `
-        <strong>ID:</strong> ${producto.id} | 
-        <strong>Name:</strong> ${producto.nombre} | 
-        <strong>Price:</strong> ${producto.precio.toFixed(2)} | 
-        <strong>Category:</strong> ${producto.categoria}
+        <strong>ID:</strong> ${product.id} | 
+        <strong>Name:</strong> ${product.name} | 
+        <strong>Price:</strong> ${product.price.toFixed(2)} | 
+        <strong>Category:</strong> ${product.category}
     `;
-    contenedor.appendChild(itemDiv);
+    container.appendChild(itemDiv);
   }
 }
 
@@ -164,28 +169,27 @@ function mostrarProductosObjeto() {
 FUNCTION: SHOW PRODUCTS SET (for...of):
     Loops through products Set using for...of loop
     The Set makes sure there are no duplicate products
-    Parses each JSON element to show the information
+    Shows the unique keys stored in the Set
 */
 function mostrarProductosSet() {
-  const contenedor = document.getElementById("productos_set");
-  contenedor.innerHTML = ""; // Clean previous content
+  const container = document.getElementById("productos_set");
+  container.innerHTML = ""; // Clean previous content
 
 // Loop through Set using for...of
-  for (let productoJSON of productosSet) {
-    const producto = JSON.parse(productoJSON);
+  for (let uniqueKey of productsSet) {
+    // Split the unique key to get product info
+    const parts = uniqueKey.split('-');
+    const name = parts[0];
 
     const itemDiv = document.createElement("div");
     itemDiv.className = "data-item";
     itemDiv.innerHTML = `
-                    <strong>ID:</strong> ${producto.id} | 
-                    <strong>Name:</strong> ${producto.nombre} | 
-                    <strong>Price:</strong> ${producto.precio.toFixed(2)} | 
-                    <strong>Category:</strong> ${producto.categoria}
+                    <strong>Name:</strong> ${name} 
                     <small style="color: #666; display: block; margin-top: 5px;">
                         Unique product verified by Set
                     </small>
                 `;
-    contenedor.appendChild(itemDiv);
+    container.appendChild(itemDiv);
   }
 }
 
@@ -196,24 +200,24 @@ FUNCTION: SHOW CATEGORIES MAP (forEach):
     The Map allows connecting multiple values (products) to one key (category)
 */
 function mostrarCategoriasMap() {
-  const contenedor = document.getElementById("productos_map");
-  contenedor.innerHTML = ""; // Clean previous content
+  const container = document.getElementById("productos_map");
+  container.innerHTML = ""; // Clean previous content
 
 // Loop through Map using forEach
-  categoriasMap.forEach((productos, categoria) => {
+  categoriesMap.forEach((productList, category) => {
     const itemDiv = document.createElement("div");
     itemDiv.className = "data-item";
     itemDiv.innerHTML = `
-        <strong>Category:</strong> ${categoria}
+        <strong>Category:</strong> ${category}
         <br>
-        <strong>Products:</strong> ${productos.join(", ")}
+        <strong>Products:</strong> ${productList.join(", ")}
         <small style="color: #666; display: block; margin-top: 5px;">
             Total products in this category: ${
-              productos.length
+              productList.length
             }
         </small>
     `;
-    contenedor.appendChild(itemDiv);
+    container.appendChild(itemDiv);
   });
 }
 
@@ -228,8 +232,8 @@ document.addEventListener("DOMContentLoaded", function () {
   document
     .getElementById("precio_producto")
     .addEventListener("input", function () {
-      const precio = parseFloat(this.value);
-      if (precio < 0) {
+      const price = parseFloat(this.value);
+      if (price < 0) {
         this.style.borderColor = "#ff4444";
       } else {
         this.style.borderColor = "#ddd";
@@ -260,14 +264,14 @@ document.addEventListener("keypress", function (event) {
 
 // Function to show quick statistics (extra functionality)
 function mostrarEstadisticas() {
-  const totalProductos = Object.keys(productos).length;
-  const totalCategorias = categoriasMap.size;
-  const precioPromedio =
-    Object.values(productos).reduce((sum, prod) => sum + prod.precio, 0) /
-    totalProductos;
+  const totalProducts = Object.keys(products).length;
+  const totalCategories = categoriesMap.size;
+  const averagePrice =
+    Object.values(products).reduce((sum, prod) => sum + prod.price, 0) /
+    totalProducts;
 
   console.log(`SYSTEM STATISTICS:
-            - Total products: ${totalProductos}
-            - Total categories: ${totalCategorias}
-            - Average price: ${precioPromedio.toFixed(2)}`);
-}
+            - Total products: ${totalProducts}
+            - Total categories: ${totalCategories}
+            - Average price: ${averagePrice.toFixed(2)}`);
+}  
