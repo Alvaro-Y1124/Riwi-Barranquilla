@@ -10,7 +10,7 @@ This is a web application that helps you manage information. You can:
 - Edit existing information
 - Delete information you don't need
 
-## Files in this project
+## Files in this project 
 
 - `index.html` - The main page of the application
 - `style.css` - Makes the page look nice and modern
