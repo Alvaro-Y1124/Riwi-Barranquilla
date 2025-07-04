@@ -1,118 +1,129 @@
-# Product Management System
+# Information Management System
 
-A simple and modern web application to manage products using JavaScript data structures.
+A simple web application to manage information using a clean and modern interface.
 
 ## What is this project?
 
-This is a product management system that helps you:
-- Add new products with name, price and category
-- Store products in different ways (Object, Set, Map)
-- Show all your products in an organized way
-- Avoid duplicate products automatically
+This is a web application that helps you manage information. You can:
+- Add new information
+- View all your information in a table
+- Edit existing information
+- Delete information you don't need
 
-## What you will find
+## Files in this project
 
-- **HTML file**: The main page with forms and buttons
-- **CSS file**: Beautiful styles and animations
-- **JavaScript file**: All the logic to manage products
+- `index.html` - The main page of the application
+- `style.css` - Makes the page look nice and modern
+- `db.json` - Stores all your information
+- `management_api.js` - Makes the application work with the database
 
-## How to use
+## How to use this project
 
-1. **Add a Product**:
-   - Write the product name
-   - Enter the price (numbers only)
-   - Choose a category
-   - Click "Add Product"
+### What you need first
 
-2. **See Your Products**:
-   - Click "Show Products" button
-   - See your products in three different ways
+1. **Node.js** - You need to install Node.js on your computer
+2. **json-server** - This helps create a fake database for testing
 
-3. **Categories Available**:
-   - Electronics
-   - Clothes
-   - Home
-   - Sports
-   - Books
-   - Food
+### Steps to run the project
 
-## What makes this special
+1. **Install json-server**
+   ```
+   npm install -g json-server
+   ```
 
-### Three Data Structures
-The system uses three different ways to store data:
+2. **Start the server**
+   ```
+   json-server --watch db.json --port 3000
+   ```
 
-1. **Object**: Stores products with unique IDs
-2. **Set**: Makes sure no duplicate products
-3. **Map**: Groups products by category
+3. **Open the project**
+   - Open the `index.html` file in your web browser
+   - Or use a local server like Live Server in VS Code
 
-### Smart Features
-- Real-time validation (checks your input while you type)
-- Beautiful animations and effects
-- Responsive design (works on phones and computers)
-- Automatic form clearing after adding products
+### How to use the application
 
-## Files Structure
+1. **Add information**
+   - Type your information in the text box
+   - Click "Add Information" button
+   - Your information will appear in the table
+
+2. **Edit information**
+   - Click the "Edit" button next to any information
+   - Change the text in the popup window
+   - Click "Update" to save changes
+
+3. **Delete information**
+   - Click the "Delete" button next to any information
+   - Confirm that you want to delete it
+
+## Features
+
+- **Easy to use** - Simple interface for everyone
+- **Safe** - Asks before deleting information
+- **Smart** - Checks for duplicate information
+- **Responsive** - Works on computers and mobile phones
+- **Modern design** - Clean and beautiful interface
+
+## Technology used
+
+- **HTML5** - Structure of the web page
+- **CSS3** - Styling and animations
+- **JavaScript** - Logic and functionality
+- **json-server** - Fake REST API for testing
+- **Fetch API** - Communication with the server
+
+## Project structure
 
 ```
 project/
-├── index.html          # Main page
+├── index.html              # Main HTML file
 ├── assets/
 │   ├── style/
-│   │   └── style.css   # All styles
+│   │   └── style.css       # CSS styles
 │   └── src/
-│       └── gestion_datos.js  # JavaScript logic
-└── README.md           # This file
+│       └── js/
+│           └── management_api.js  # JavaScript logic
+├── db.json                 # Database file
+└── README.md              # This file
 ```
 
-## How to start
+## Common problems and solutions
 
-1. Download all files
-2. Open `index.html` in your web browser
-3. Start adding products!
+### Problem: "Connection error"
+**Solution:** Make sure json-server is running:
+```
+json-server --watch db.json --port 3000
+```
 
-## Technical Details
+### Problem: Page doesn't load
+**Solution:** Make sure all files are in the correct folders
 
-### JavaScript Concepts Used
-- **Objects**: Store data with keys and values
-- **Sets**: Keep unique items only
-- **Maps**: Connect keys with multiple values
-- **Loops**: for...in, for...of, forEach
-- **DOM Manipulation**: Change webpage content
-- **Event Listeners**: React to user actions
+### Problem: Buttons don't work
+**Solution:** Check that the JavaScript file is loaded correctly
 
-### Browser Support
-Works in all modern browsers:
-- Chrome
-- Firefox
+## How to customize
+
+1. **Change colors** - Edit the CSS file to change colors
+2. **Add more fields** - Modify the HTML and JavaScript to add more input fields
+3. **Change the database** - Edit db.json to add more data types
+
+## Browser support
+
+This application works on:
+- Google Chrome
+- Mozilla Firefox
 - Safari
-- Edge
+- Microsoft Edge
+- Any modern web browser
 
-## Learning Goals
+## Need help?
 
-This project teaches:
-- How to use JavaScript data structures
-- How to validate user input
-- How to create interactive web pages
-- How to organize code with functions
-- How to make responsive designs
-
-## Future Improvements
-
-Ideas to make it better:
-- Add edit product option
-- Add delete product option
-- Save data to local storage
-- Add search functionality
-- Export data to file
-
-## Author
-
-Created as a learning project to understand JavaScript data structures and DOM manipulation.
+If you have problems:
+1. Check that json-server is running
+2. Look at the browser console for error messages
+3. Make sure all files are in the right place
+4. Check that your internet connection is working
 
 ## License
 
-Free to use for educational purposes.
-
----
-
-**Note**: This project is perfect for beginners learning JavaScript and web development!
+This project is free to use and modify.
