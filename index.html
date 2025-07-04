@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- This tells the browser what type of document this is -->
+    <meta charset="UTF-8">
+    <!-- This makes the page work well on mobile phones -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- This is the title that shows in the browser tab -->
+    <title>Information Management</title>
+    <!-- This connects our CSS file to make the page look nice -->
+    <link rel="stylesheet" href="./assets/style/style.css">
+</head>
+<body>
+    <!-- Main container that holds everything -->
+    <div class="container">
+        <!-- Header section with title and description -->
+        <div class="header">
+            <h1>📊 Information Management</h1>
+            <p>Complete system to manage your information efficiently</p>
+        </div>
+
+        <!-- Main content area -->
+        <div class="content">
+            <!-- Area where alerts and messages will show -->
+            <div id="alertas"></div>
+
+            <!-- Form section to add new information -->
+            <div class="form-section">
+                <h2>➕ Add New Information</h2>
+                <form id="formulario">
+                    <div class="form-group">
+                        <label for="informacion">Information:</label>
+                        <input type="text" id="informacion" placeholder="Enter the information" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Information</button>
+                </form>
+            </div>
+
+            <!-- Table section to show all information -->
+            <div class="table-section">
+                <h2>📋 Information List</h2>
+                <div id="tabla-container">
+                    <table id="tabla-informacion">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Information</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="lista-informacion">
+                            <!-- Data will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Message that shows when there is no data -->
+                <div id="empty-state" class="empty-state" style="display: none;">
+                    <div style="font-size: 3rem; margin-bottom: 20px;">📝</div>
+                    <h3>No information available</h3>
+                    <p>Start by adding your first information using the form above.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal window for editing information -->
+    <div id="modal-editar" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>✏️ Edit Information</h3>
+            <form id="form-editar">
+                <div class="form-group">
+                    <label for="edit-informacion">Information:</label>
+                    <input type="text" id="edit-informacion" required>
+                    <input type="hidden" id="edit-id">
+                </div>
+                <button type="submit" class="btn btn-success">Update</button>
+                <button type="button" class="btn btn-danger" onclick="cerrarModal()">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- This connects our JavaScript file to make the page work -->
+    <script src="./assets/src/js/gestión_api.js"></script>
+</body>
+</html>
