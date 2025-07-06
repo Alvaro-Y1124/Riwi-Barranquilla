@@ -161,16 +161,16 @@ const tablaContainer = document.getElementById("tabla-container");
  * Show alert messages to the user
  * This function shows messages on the screen
  */
-function mostrarAlerta(mensaje, tipo = "success") {
+function showAlert(message, type = "success") {
   // Create a new alert element
-  const alerta = document.createElement("div");
-  alerta.className = `alert alert-${tipo}`;
-  alerta.textContent = mensaje;
-  alertas.appendChild(alerta);
+  const alert = document.createElement("div");
+  alert.className = `alert alert-${type}`;
+  alert.textContent = message;
+  alertas.appendChild(alert);
 
   // Remove the alert after 3 seconds
   setTimeout(() => {
-    alerta.remove();
+    alert.remove();
   }, 3000);
 }
 
@@ -178,9 +178,9 @@ function mostrarAlerta(mensaje, tipo = "success") {
  * Update the display based on data
  * This function shows or hides the table based on data
  */
-function actualizarVisualizacion(lista) {
+function updateView(list) {
   // If there is no data, show empty message
-  if (lista.length === 0) {
+  if (list.length === 0) {
     tablaContainer.style.display = "none";
     emptyState.style.display = "block";
   } else {
@@ -194,17 +194,17 @@ function actualizarVisualizacion(lista) {
  * Load data from the server
  * This function gets all data and shows it on the page
  */
-async function cargarDatos() {
+async function loadData() {
   try {
     // Get all information from the server
-    const lista = await api.getInformation();
+    const list = await api.getInformation();
     // Create the table with the data
-    crearTabla(lista);
+    createTable(list);
     // Update what the user sees
-    actualizarVisualizacion(lista);
+    updateView(list);
   } catch (error) {
     // Show error message if something goes wrong
-    mostrarAlerta(error.message || "Error al cargar los datos", "error");
+    showAlert(error.message || "Error loading data", "error");
   }
 }
 
@@ -212,12 +212,12 @@ async function cargarDatos() {
  * Create the table with all information
  * This function makes the table with all the data
  */
-function crearTabla(lista) {
+function createTable(list) {
   // Clear the table first
   listaInformacion.innerHTML = "";
   // Add each piece of information to the table
-  lista.forEach((informacion) => {
-    crearFila(informacion);
+  list.forEach((information) => {
+    createRow(information);
   });
 }
 
@@ -225,46 +225,46 @@ function crearTabla(lista) {
  * Create a row in the table
  * This function makes one row in the table
  */
-function crearFila(informacion) {
+function createRow(information) {
   // Create a new table row
   const tr = document.createElement("tr");
 
   // Create cell for ID
   const tdId = document.createElement("td");
-  tdId.textContent = informacion.id;
+  tdId.textContent = information.id;
 
   // Create cell for name
-  const tdNombre = document.createElement("td");
-  tdNombre.textContent = informacion.nombre;
+  const tdName = document.createElement("td");
+  tdName.textContent = information.nombre;
 
   // Create cell for action buttons
-  const tdAcciones = document.createElement("td");
-  tdAcciones.className = "actions";
+  const tdActions = document.createElement("td");
+  tdActions.className = "actions";
 
   // Create edit button
-  const btnEditar = document.createElement("button");
-  btnEditar.className = "btn btn-success btn-sm";
-  btnEditar.innerHTML = "✏️ Editar";
-  btnEditar.addEventListener("click", () =>
-    editarInformacion(informacion.id, informacion.nombre)
+  const btnEdit = document.createElement("button");
+  btnEdit.className = "btn btn-success btn-sm";
+  btnEdit.innerHTML = "✏️ Edit";
+  btnEdit.addEventListener("click", () =>
+    editInformation(information.id, information.nombre)
   );
 
   // Create delete button
-  const btnEliminar = document.createElement("button");
-  btnEliminar.className = "btn btn-danger btn-sm";
-  btnEliminar.innerHTML = "🗑️ Eliminar";
-  btnEliminar.addEventListener("click", () =>
-    eliminarInformacion(informacion.id)
+  const btnDelete = document.createElement("button");
+  btnDelete.className = "btn btn-danger btn-sm";
+  btnDelete.innerHTML = "🗑️ Delete";
+  btnDelete.addEventListener("click", () =>
+    deleteInformation(information.id)
   );
 
   // Add buttons to the actions cell
-  tdAcciones.appendChild(btnEditar);
-  tdAcciones.appendChild(btnEliminar);
+  tdActions.appendChild(btnEdit);
+  tdActions.appendChild(btnDelete);
 
   // Add cells to the row
   tr.appendChild(tdId);
-  tr.appendChild(tdNombre);
-  tr.appendChild(tdAcciones);
+  tr.appendChild(tdName);
+  tr.appendChild(tdActions);
 
   // Add row to the table
   listaInformacion.appendChild(tr);
@@ -274,13 +274,13 @@ function crearFila(informacion) {
  * Check if information already exists
  * This function looks for duplicate information
  */
-async function verificarDuplicado(nombre) {
+async function checkDuplicate(name) {
   try {
     // Get all information from the server
-    const lista = await api.getInformation();
+    const list = await api.getInformation();
     // Look for information with the same name
-    return lista.find(
-      (item) => item.nombre.toLowerCase() === nombre.toLowerCase()
+    return list.find(
+      (item) => item.nombre.toLowerCase() === name.toLowerCase()
     );
   } catch (error) {
     return null;
@@ -296,44 +296,44 @@ formulario.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   // Get the information from the form
-  const informacion = {
+  const information = {
     nombre: inputInformacion.value.trim(),
   };
 
   // Check if the information is valid
-  if (!informacion.nombre) {
-    mostrarAlerta("Por favor ingrese información válida", "error");
+  if (!information.nombre) {
+    showAlert("Please enter valid information", "error");
     return;
   }
 
   try {
     // Check if this information already exists
-    const existente = await verificarDuplicado(informacion.nombre);
+    const existing = await checkDuplicate(information.nombre);
 
-    if (existente) {
+    if (existing) {
       // Ask the user if they want to update existing information
-      const confirmar = confirm(
-        `La información "${informacion.nombre}" ya existe.\n\n¿Desea actualizarla?`
+      const confirm = window.confirm(
+        `The information "${information.nombre}" already exists.\n\nDo you want to update it?`
       );
 
-      if (confirmar) {
+      if (confirm) {
         // Update the existing information
-        await api.putInformation(existente.id, informacion);
-        mostrarAlerta("Información actualizada exitosamente");
+        await api.putInformation(existing.id, information);
+        showAlert("Information updated successfully");
         inputInformacion.value = "";
-        cargarDatos();
+        loadData();
       } else {
-        mostrarAlerta("Operación cancelada", "error");
+        showAlert("Operation cancelled", "error");
       }
     } else {
       // Add new information
-      await api.postInformation(informacion);
-      mostrarAlerta("Información agregada exitosamente");
+      await api.postInformation(information);
+      showAlert("Information added successfully");
       inputInformacion.value = "";
-      cargarDatos();
+      loadData();
     }
   } catch (error) {
-    mostrarAlerta(error.message || "Error al procesar información", "error");
+    showAlert(error.message || "Error processing information", "error");
   }
 });
 
@@ -341,10 +341,10 @@ formulario.addEventListener("submit", async (event) => {
  * Edit information
  * This function opens the edit modal
  */
-function editarInformacion(id, nombre) {
+function editInformation(id, name) {
   // Set the values in the edit form
   editId.value = id;
-  editInformacion.value = nombre;
+  editInformacion.value = name;
   // Show the edit modal
   modalEditar.style.display = "block";
 }
@@ -357,39 +357,38 @@ formEditar.addEventListener("submit", async (event) => {
   // Stop the form from submitting normally
   event.preventDefault();
 
-  // Get the values from the edit form - AQUÍ ESTÁ EL FIX: No usar parseInt()
-  const id = editId.value; // Mantener como string
-  const informacion = {
+  // Get the values from the edit form - Keep as string
+  const id = editId.value; // Keep as string
+  const information = {
     nombre: editInformacion.value.trim(),
   };
 
-
   // Check if the information is valid
-  if (!informacion.nombre) {
-    mostrarAlerta("Por favor ingrese información válida", "error");
+  if (!information.nombre) {
+    showAlert("Please enter valid information", "error");
     return;
   }
 
   try {
     // Check if another record has the same name
-    const existente = await verificarDuplicado(informacion.nombre);
+    const existing = await checkDuplicate(information.nombre);
 
-    if (existente && existente.id !== id) {
-      mostrarAlerta(
-        `La información "${informacion.nombre}" ya existe en otro registro`,
+    if (existing && existing.id !== id) {
+      showAlert(
+        `The information "${information.nombre}" already exists in another record`,
         "error"
       );
       return;
     }
 
     // Update the information
-    await api.putInformation(id, informacion);
-    mostrarAlerta("Información actualizada exitosamente");
-    cerrarModal();
-    cargarDatos();
+    await api.putInformation(id, information);
+    showAlert("Information updated successfully");
+    closeModal();
+    loadData();
   } catch (error) {
-    console.error("Error al actualizar:", error);
-    mostrarAlerta(error.message || "Error al actualizar información", "error");
+    console.error("Error updating:", error);
+    showAlert(error.message || "Error updating information", "error");
   }
 });
 
@@ -397,18 +396,17 @@ formEditar.addEventListener("submit", async (event) => {
  * Delete information
  * This function removes information from the database
  */
-async function eliminarInformacion(id) {
-
+async function deleteInformation(id) {
   // Ask the user if they are sure
-  if (confirm("¿Está seguro de que desea eliminar esta información?")) {
+  if (confirm("Are you sure you want to delete this information?")) {
     try {
       // Delete the information
       await api.deleteInformation(id);
-      mostrarAlerta("Información eliminada exitosamente");
-      cargarDatos();
+      showAlert("Information deleted successfully");
+      loadData();
     } catch (error) {
-      console.error("Error al eliminar:", error);
-      mostrarAlerta(error.message || "Error al eliminar información", "error");
+      console.error("Error deleting:", error);
+      showAlert(error.message || "Error deleting information", "error");
     }
   }
 }
@@ -417,7 +415,7 @@ async function eliminarInformacion(id) {
  * Close the edit modal
  * This function hides the edit modal and clears the form
  */
-function cerrarModal() {
+function closeModal() {
   // Hide the modal
   modalEditar.style.display = "none";
   // Clear the form
@@ -426,14 +424,14 @@ function cerrarModal() {
 }
 
 // Add click event to the close button
-document.querySelector(".close").addEventListener("click", cerrarModal);
+document.querySelector(".close").addEventListener("click", closeModal);
 
 // Close modal when clicking outside of it
 window.addEventListener("click", (event) => {
   if (event.target === modalEditar) {
-    cerrarModal();
+    closeModal();
   }
 });
 
 // Load data when the page starts
-document.addEventListener("DOMContentLoaded", cargarDatos);
+document.addEventListener("DOMContentLoaded", loadData);
