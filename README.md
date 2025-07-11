@@ -1,118 +1,63 @@
-# Product Management System
+# Interactive Web App
 
-A simple and modern web application to manage products using JavaScript data structures.
+## What is this?
 
-## What is this project?
+This is a simple web page where you can save your name and age. The page remembers your information and counts how many times you use it.
 
-This is a product management system that helps you:
-- Add new products with name, price and category
-- Store products in different ways (Object, Set, Map)
-- Show all your products in an organized way
-- Avoid duplicate products automatically
+## What does it do?
 
-## What you will find
+- **Save your information**: You can write your name and age, then save it
+- **Show your information**: The page shows what you saved
+- **Count your actions**: It counts every time you do something on the page
+- **Clear your data**: You can delete everything if you want
 
-- **HTML file**: The main page with forms and buttons
-- **CSS file**: Beautiful styles and animations
-- **JavaScript file**: All the logic to manage products
+## How to use it
 
-## How to use
+1. **Open the page**: Open the file `index.html` in your web browser
+2. **Write your name**: Put your name in the first box
+3. **Write your age**: Put your age in the second box
+4. **Click "Save Data"**: Press the green button to save
+5. **See your information**: Your name and age will appear below
+6. **Clear everything**: Press the red button to delete everything
 
-1. **Add a Product**:
-   - Write the product name
-   - Enter the price (numbers only)
-   - Choose a category
-   - Click "Add Product"
+## What you need
 
-2. **See Your Products**:
-   - Click "Show Products" button
-   - See your products in three different ways
+- A web browser (Chrome, Firefox, Safari, Edge)
+- The three files: `index.html`, `main.js`, and `style.css`
 
-3. **Categories Available**:
-   - Electronics
-   - Clothes
-   - Home
-   - Sports
-   - Books
-   - Food
+## Rules for your information
 
-## What makes this special
+- **Name**: Must be at least 2 letters long
+- **Age**: Must be between 1 and 120 years old
 
-### Three Data Structures
-The system uses three different ways to store data:
+## Files in this project
 
-1. **Object**: Stores products with unique IDs
-2. **Set**: Makes sure no duplicate products
-3. **Map**: Groups products by category
+- `index.html` - The main page you open
+- `main.js` - Makes the page work
+- `style.css` - Makes the page look nice
 
-### Smart Features
-- Real-time validation (checks your input while you type)
-- Beautiful animations and effects
-- Responsive design (works on phones and computers)
-- Automatic form clearing after adding products
+## How it saves your data
 
-## Files Structure
+The page saves your information in your browser. This means:
+- Your data stays when you close and open the page again
+- Other people cannot see your information
+- The counter resets when you close your browser
 
-```
-project/
-├── index.html          # Main page
-├── assets/
-│   ├── style/
-│   │   └── style.css   # All styles
-│   └── src/
-│       └── gestion_datos.js  # JavaScript logic
-└── README.md           # This file
-```
+## Problems?
 
-## How to start
+If something is not working:
+1. Check that all three files are in the same folder
+2. Make sure you opened `index.html` in your browser
+3. Try refreshing the page (press F5)
 
-1. Download all files
-2. Open `index.html` in your web browser
-3. Start adding products!
+## Features
 
-## Technical Details
-
-### JavaScript Concepts Used
-- **Objects**: Store data with keys and values
-- **Sets**: Keep unique items only
-- **Maps**: Connect keys with multiple values
-- **Loops**: for...in, for...of, forEach
-- **DOM Manipulation**: Change webpage content
-- **Event Listeners**: React to user actions
-
-### Browser Support
-Works in all modern browsers:
-- Chrome
-- Firefox
-- Safari
-- Edge
-
-## Learning Goals
-
-This project teaches:
-- How to use JavaScript data structures
-- How to validate user input
-- How to create interactive web pages
-- How to organize code with functions
-- How to make responsive designs
-
-## Future Improvements
-
-Ideas to make it better:
-- Add edit product option
-- Add delete product option
-- Save data to local storage
-- Add search functionality
-- Export data to file
-
-## Author
-
-Created as a learning project to understand JavaScript data structures and DOM manipulation.
-
-## License
-
-Free to use for educational purposes.
+✅ Easy to use
+✅ Remembers your information
+✅ Counts your actions
+✅ Works on phones and computers
+✅ Nice colors and design
 
 ---
 
-**Note**: This project is perfect for beginners learning JavaScript and web development!
+**Made with**: HTML, CSS, and JavaScript
