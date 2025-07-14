@@ -1,211 +1,219 @@
-# Riwi Barranquilla
+# Event Manager SPA
 
-Sistema de gestión de cursos académicos desarrollado como una Single Page Application (SPA) con JavaScript vanilla, que permite a administradores gestionar cursos y a estudiantes inscribirse en ellos.
+A Single Page Application (SPA) for event management built with vanilla JavaScript, HTML5, and CSS3.
 
-## 🚀 Características Principales
+## Developer Information
+- **Name**: [Your Name]
+- **Clan**: [Your Clan]
+- **Email**: [Your Email]
+- **Document ID**: [Your Document ID]
 
-- **Autenticación de usuarios** con roles diferenciados (Administrador/Estudiante)
-- **Sistema de rutas protegidas** mediante hash routing
-- **Gestión completa de cursos** (CRUD para administradores)
-- **Inscripción de estudiantes** a cursos disponibles
-- **Dashboard personalizado** según el rol del usuario
-- **Encriptación de contraseñas** con SHA256
-- **Diseño responsive** y moderno
+## Project Overview
 
-## 🛠️ Tecnologías Utilizadas
+This application allows users to manage events with different roles:
+- **Administrators**: Can create, edit, and delete events
+- **Visitors**: Can view events and register/unregister for them
 
-- **Frontend**: JavaScript Vanilla (ES6+)
-- **Estilos**: CSS3 puro
-- **Base de datos**: JSON Server (simulación de API REST)
-- **Servidor de desarrollo**: Vite
-- **Encriptación**: CryptoJS (SHA256)
-- **Arquitectura**: SPA con patrón MVC
+## Features
 
-## 📋 Requisitos Previos
+- User authentication (login/register)
+- Role-based access control
+- Session persistence using localStorage
+- Event CRUD operations
+- Event registration system with capacity limits
+- Responsive design
+- Protected routes
+- Real-time data synchronization with JSON server
 
-- Node.js (v14 o superior)
-- npm o yarn
-- Git
+## Technologies Used
 
-## 🔧 Instalación
+- **Frontend**: Vanilla JavaScript (ES6 modules), HTML5, CSS3
+- **Backend**: JSON Server (for API simulation)
+- **Build Tool**: Vite
+- **Data Storage**: localStorage (session persistence)
 
-1. **Clonar el repositorio**
+## Prerequisites
+
+Before running this project, make sure you have the following installed:
+- Node.js (v14 or higher)
+- npm (Node Package Manager)
+
+## Installation & Setup
+
+1. **Clone or download the project files**
    ```bash
-   git clone https://github.com/tu-usuario/academia-cursos-online.git
-   cd academia-cursos-online
+   # If using git
+   git clone [repository-url]
+   cd event-manager
    ```
 
-2. **Instalar dependencias**
+2. **Install dependencies**
    ```bash
    npm install
    ```
 
-3. **Instalar JSON Server globalmente** (si no lo tienes)
+3. **Start the JSON Server (Database)**
    ```bash
-   npm install -g json-server
+   npm run server
    ```
+   This will start the JSON server on `http://localhost:3000`
 
-## 🏃‍♂️ Ejecutar el Proyecto
+4. **Start the Development Server**
+   Open a new terminal window and run:
+   ```bash
+   npm run dev
+   ```
+   This will start the Vite development server, typically on `http://localhost:5173`
 
-El proyecto requiere ejecutar dos servidores simultáneamente:
+## Usage
 
-### Opción 1: En terminales separadas
+### Default Users
 
-**Terminal 1 - JSON Server (Backend)**
-```bash
-json-server --watch assets/db/db.json --port 3000
-```
+The application comes with two pre-configured users:
 
-**Terminal 2 - Vite (Frontend)**
-```bash
-npm run dev
-```
+**Administrator:**
+- Username: `admin`
+- Password: `admin123`
+- Role: admin
 
-### Opción 2: Usando concurrently (recomendado)
+**Visitor:**
+- Username: `visitor`
+- Password: `visitor123`
+- Role: visitor
 
-Primero instala concurrently:
-```bash
-npm install --save-dev concurrently
-```
+### Navigation
 
-Luego agrega este script a tu `package.json`:
-```json
-{
-  "scripts": {
-    "dev": "vite",
-    "backend": "json-server --watch assets/db/db.json --port 3000",
-    "start": "concurrently \"npm run backend\" \"npm run dev\""
-  }
-}
-```
+- **Home/Dashboard**: `/dashboard` - Main dashboard showing all events
+- **Login**: `/login` - User authentication
+- **Register**: `/register` - New user registration
+- **Create Event**: `/dashboard/events/create` - Create new event (admin only)
+- **Edit Event**: `/dashboard/events/edit?id=X` - Edit existing event (admin only)
 
-Y ejecuta:
-```bash
-npm start
-```
+### User Roles
 
-## 🌐 Acceso a la Aplicación
+**Administrator can:**
+- View all events
+- Create new events
+- Edit existing events
+- Delete events
+- View event attendees
 
-- **Frontend**: http://localhost:5173 (o el puerto que asigne Vite)
-- **API (JSON Server)**: http://localhost:3000
+**Visitor can:**
+- View all events
+- Register for events (if not at capacity)
+- Unregister from events
+- View their registered events
 
-## 👥 Usuarios de Prueba
-
-### Administrador
-- **Email**: admin@academia.com
-- **Contraseña**: admin123
-
-### Estudiante
-Puedes registrar nuevos estudiantes desde la página de registro.
-
-## 📁 Estructura del Proyecto
+## Project Structure
 
 ```
-academia-cursos-online/
-├── assets/
-│   ├── db/
-│   │   └── db.json              # Base de datos JSON
-│   ├── src/
-│   │   ├── js/
-│   │   │   ├── components/      # Componentes reutilizables
-│   │   │   │   ├── modal.js
-│   │   │   │   └── navbar.js
-│   │   │   ├── controllers/     # Lógica de negocio
-│   │   │   │   ├── auth.js
-│   │   │   │   └── config.js
-│   │   │   ├── router/          # Sistema de rutas
-│   │   │   │   └── router.js
-│   │   │   ├── utils/           # Utilidades
-│   │   │   │   └── messages.js
-│   │   │   └── views/           # Vistas de la aplicación
-│   │   │       ├── courses.js
-│   │   │       ├── dashboard.js
-│   │   │       ├── home.js
-│   │   │       ├── login.js
-│   │   │       ├── notFound.js
-│   │   │       └── register.js
-│   │   └── main.js              # Punto de entrada
-│   └── style/
-│       └── style.css            # Estilos globales
-├── index.html                   # Archivo HTML principal
-├── package.json
-└── README.md
+event-manager/
+├── index.html              # Main HTML file
+├── index.js                # Application entry point
+├── styles.css              # Global styles
+├── package.json            # Project dependencies
+├── db.json                 # JSON server database
+├── app/          
+│     ├── js/
+│          ├── api.js              # API service layer
+│          ├── auth.js             # Authentication module
+│          ├── router.js           # Client-side routing
+│          ├── components/
+│          │         └── header.js       # Header component
+│          └── views/
+│                 ├── dashboard.js      # Dashboard view
+│                 ├── login.js          # Login view
+│                 ├── register.js       # Register view
+│                 ├── create-event.js   # Create event view
+│                 ├── edit-event.js     # Edit event view
+│                 └── not-found.js      # 404 page
+└── README.md              # This file
 ```
 
-## 🔐 Funcionalidades por Rol
+## API Endpoints
 
-### Administrador
-- Ver estadísticas generales del sistema
-- Crear, editar y eliminar cursos
-- Ver lista de estudiantes inscritos
-- Gestionar capacidad de cursos
+The JSON server provides the following endpoints:
 
-### Estudiante
-- Ver cursos disponibles
-- Inscribirse en cursos
-- Ver sus cursos inscritos
-- Cancelar inscripciones
+- `GET /users` - Get all users
+- `POST /users` - Create new user
+- `GET /events` - Get all events
+- `GET /events/:id` - Get specific event
+- `POST /events` - Create new event
+- `PUT /events/:id` - Update event
+- `DELETE /events/:id` - Delete event
 
-## 🎯 Características Técnicas
+## Features in Detail
 
-### Sistema de Rutas
-- Implementación de SPA con hash routing (#)
-- Rutas protegidas según autenticación
-- Guardias de ruta para verificar permisos
+### Authentication
+- Users can register with username, email, and password
+- Login with username/password
+- Session persistence using localStorage
+- Role-based access control
 
-### Seguridad
-- Contraseñas encriptadas con SHA256
-- Tokens JWT simulados para sesiones
-- Validación de formularios
-- Protección contra acceso no autorizado
+### Event Management
+- Create events with title, description, date, time, location, and capacity
+- Edit existing events (admin only)
+- Delete events (admin only)
+- View all events with attendee information
 
-### API REST (JSON Server)
-- Endpoints disponibles:
-  - `GET /users` - Obtener usuarios
-  - `POST /users` - Crear usuario
-  - `GET /courses` - Obtener cursos
-  - `POST /courses` - Crear curso
-  - `PUT /courses/:id` - Actualizar curso
-  - `DELETE /courses/:id` - Eliminar curso
+### Event Registration
+- Visitors can register for events
+- Capacity limits are enforced
+- Users can unregister from events
+- Real-time attendee count display
 
-## 🚀 Deployment
+### Route Protection
+- Protected routes require authentication
+- Role-based route access
+- Automatic redirection for unauthorized access
+- Custom 404 page for invalid routes
 
-Para preparar el proyecto para producción:
+## Running in Production
+
+To build for production:
 
 ```bash
 npm run build
 ```
 
-Esto generará una carpeta `dist/` con los archivos optimizados.
+This will create a `dist` folder with optimized files ready for deployment.
 
-## 🤝 Contribuir
+## Testing
 
-1. Fork el proyecto
-2. Crea tu rama de características (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
+You can test the API endpoints using the provided Postman collection or by using curl commands:
 
-## 📝 Notas Adicionales
+```bash
+# Get all events
+curl http://localhost:3000/events
 
-- El proyecto usa JSON Server como simulación de backend, en producción se debe implementar un backend real
-- Las contraseñas se almacenan encriptadas pero también se guarda la versión original solo para propósitos de desarrollo
-- El sistema de tokens es una simulación básica, en producción usar JWT real
-- Asegúrate de que ambos servidores estén ejecutándose antes de usar la aplicación
+# Create a new event
+curl -X POST http://localhost:3000/events \
+  -H "Content-Type: application/json" \
+  -d '{"title":"Test Event","description":"Test","date":"2025-08-01","time":"10:00","location":"Test Location","capacity":50,"attendees":[]}'
+```
 
-## 🐛 Solución de Problemas
+## Troubleshooting
 
-### El servidor no inicia
-- Verifica que los puertos 3000 y 5173 estén libres
-- Asegúrate de tener todas las dependencias instaladas
+### Common Issues
 
-### Error de CORS
-- JSON Server debe estar ejecutándose en el puerto 3000
-- Verifica la configuración de `API_URL` en `config.js`
+1. **Port 3000 already in use**
+   - Change the port in package.json: `"server": "json-server --watch db.json --port 3001"`
 
-### La página muestra "404 Not Found"
-- Verifica que estés autenticado para acceder a rutas protegidas
-- Asegúrate de usar el hash (#) en las URLs
+2. **Vite dev server not starting**
+   - Make sure no other service is using port 5173
+   - Try: `npm run dev -- --port 5174`
 
+3. **CORS issues**
+   - JSON server includes CORS headers by default
+   - Make sure both servers are running
 
----
+4. **Data not persisting**
+   - Check if db.json file exists and is writable
+   - Restart the JSON server if needed
+
+### Development Tips
+
+- Use browser developer tools to debug
+- Check the Network tab for API calls
+- Use console.log for debugging JavaScript
+- Check localStorage in Application tab for session data
