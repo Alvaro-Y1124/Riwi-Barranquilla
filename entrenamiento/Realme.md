@@ -1,4 +1,4 @@
-# 📚 Academia de Cursos Online
+# Riwi Barranquilla
 
 Sistema de gestión de cursos académicos desarrollado como una Single Page Application (SPA) con JavaScript vanilla, que permite a administradores gestionar cursos y a estudiantes inscribirse en ellos.
 
