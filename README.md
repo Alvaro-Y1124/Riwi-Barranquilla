@@ -2,12 +2,6 @@
 
 A Single Page Application (SPA) for event management built with vanilla JavaScript, HTML5, and CSS3.
 
-## Developer Information
-- **Name**: [Your Name]
-- **Clan**: [Your Clan]
-- **Email**: [Your Email]
-- **Document ID**: [Your Document ID]
-
 ## Project Overview
 
 This application allows users to manage events with different roles:
