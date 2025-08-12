@@ -2,7 +2,6 @@
 
 /**
  * Sistema de Importación Dinámica para Transacciones, Clientes y Facturas
- * Versión final con el mapeo de columnas corregido.
  */
 
 import mysql from 'mysql2/promise';
@@ -36,10 +35,7 @@ function getColumnMappings() {
         ['correo electrónico', 'email'],
         ['plataforma utilizada', 'platform_used'],
         ['número de factura', 'bill_number'],
-        // ======================= INICIO DE LA CORRECCIÓN FINAL Y DEFINITIVA =======================
-        // Se corrige el nombre para que coincida EXACTAMENTE con el encabezado del Excel (sin acento en 'Periodo').
         ['periodo de facturación', 'billing_period'],
-        // ======================== FIN DE LA CORRECCIÓN FINAL Y DEFINITIVA =========================
         ['monto facturado', 'billed_amount'],
         ['monto pagado', 'paid_amount']
     ]);
@@ -51,7 +47,7 @@ function getTableSchemas() {
         expectedTables: ['customers', 'bills', 'transactions'],
         tableColumns: {
             customers: ['id_client', 'identification_number', 'client_names', 'phone', 'email', 'address'],
-            bills: ['id_bill', 'bill_number', 'billing_period', 'billed_amount'], // Usando 'billed_amount'
+            bills: ['id_bill', 'bill_number', 'billing_period', 'billed_amount'], 
             transactions: ['id_transaction', 'code_transaction', 'date_time_transaction', 'transaction_amount', 'transaction_status', 'transaction_type', 'platform_used', 'paid_amount', 'id_client', 'id_bill']
         }
     };
