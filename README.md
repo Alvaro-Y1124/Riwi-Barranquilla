@@ -1,108 +1,189 @@
-# Riwi-Barranquilla
+# Customer Management System 📊
 
-# Riwi - Sistema de Gestión de Inventario
+A complete web application for managing customers with features to create, read, update, and delete customer information. The system also includes data import functionality from Excel/CSV files.
 
-## Descripción
+## 🚀 Features
 
-Riwi es un programa de consola en Python diseñado para gestionar el inventario de productos de forma sencilla y segura. Permite agregar, consultar, actualizar y eliminar productos, así como calcular el valor total del inventario.
+- **Customer Management**: Full CRUD operations
+- **Search Functionality**: Find customers by ID number
+- **Data Import**: Import customer, bill, and transaction data from Excel/CSV files
+- **Responsive Design**: Clean and modern user interface
+- **MySQL Database**: Secure data storage
+- **REST API**: Well-structured backend API
 
-## Características
+## 📋 Requirements
 
-Validación de entradas:
+Before starting, make sure you have installed:
 
-    Nombre de producto sin espacios y no vacío.
-    Precio unitario como flotante positivo.
-    Cantidad como entero positivo.
-   
-Operaciones CRUD:
+- **Node.js** (version 14 or higher)
+- **MySQL** (version 8.0 or higher)
+- **Web Browser** (Chrome, Firefox, Safari, etc.)
+- **Code Editor** (Visual Studio Code recommended)
 
-    Agregar producto**: Inserta un nuevo producto si no existe.
-    Consultar producto**: Busca y muestra información de un producto.
-    Actualizar precio**: Modifica el precio de un producto existente.
-    Eliminar producto**: Borra un producto del inventario.
-    
-Visualización y cálculo:
+## 🛠️ Installation
 
-    Mostrar el inventario completo.
-    Calcular el valor total (precio × cantidad) de todos los productos.
-    Interfaz interactiva**: Menú de opciones que se adapta al estado del inventario.
-    Limpieza de pantalla**: El terminal se limpia antes de mostrar el menú principal.
+### Step 1: Database Setup
 
-## Requisitos
+1. Open your MySQL client (MySQL Workbench, phpMyAdmin, or command line)
+2. Create a new database:
+   ```sql
+   CREATE DATABASE pd_alvaro_noriega_macondo;
+   ```
+3. Import the database structure using the `pd_alvaro_noriega_macondo.sql` file provided in the project
 
-    Python 3.8 o superior
+### Step 2: Environment Configuration
 
-## Estructura del proyecto
+Create a `.env` file in the **backend folder** with the following content:
 
-    riwi/
-    ├── main.py           # Punto de entrada del programa
-    ├── src/
-    │   └── utils.py      # Módulo con funciones auxiliares y validaciones
-    └── README.md         # Documentación del proyecto
+```env
+# --- Database Credentials ---
+HOST=127.0.0.1
+DATABASE=pd_alvaro_noriega_macondo
+DB_USER=root
+DB_PASSWORD=your_password
+
+# --- Server Configuration ---
+PORT=3001
+```
+
+**Important**: Replace `your_password` with your actual MySQL password.
+
+### Step 3: Backend Setup
+
+1. Open **Visual Studio Code**
+2. Open the terminal in VS Code (Ctrl + ` or View → Terminal)
+3. Navigate to the backend folder:
+   ```bash
+   cd backend
+   ```
+4. Initialize npm:
+   ```bash
+   npm init -y
+   ```
+5. Install dependencies:
+   ```bash
+   npm i
+   ```
+6. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+You should see: `Server listening on port 3001`
+
+### Step 4: Frontend Setup
+
+1. Install **Live Server** extension in VS Code:
+   - Go to Extensions (Ctrl + Shift + X)
+   - Search for "Live Server"
+   - Install the extension by Ritwick Dey
+
+2. Open the `index.html` file
+3. Right-click on the file and select "Open with Live Server"
+4. The application will open in your browser at `http://127.0.0.1:5500`
+
+## 🎯 How to Use
+
+### Customer Management
+
+1. **Add Customer**: Fill the form and click "Keep"
+2. **Edit Customer**: Click "Edit" button on any customer row
+3. **Delete Customer**: Click "Delete" button (will also delete related transactions)
+4. **Search Customer**: Enter ID number and click "Look for"
+
+### Data Import
+
+Use the `importData.js` script to import data from Excel or CSV files:
+
+```bash
+node importData.js path/to/your/file.xlsx
+```
+The script supports:
+- Excel files (.xlsx, .xls)
+- CSV files (.csv)
+- Automatic data validation
+- Transaction rollback on errors
+- To run the script, go to the script folder and run node plus the file name followed by .js, for example node imporData.js.
+
+## API Endpoints
+
+### Customers
+- `GET /customers` - Get all customers
+- `GET /customers/:id` - Get customer by ID
+- `GET /customers?identification_number=123` - Search by ID number
+- `POST /customers` - Create new customer
+- `PUT /customers/:id` - Update customer
+- `DELETE /customers/:id` - Delete customer
+
+### Example API Usage
+
+**Create Customer:**
+```json
+POST /customers
+{
+  "identification_number": "1234567890",
+  "client_names": "John Doe",
+  "phone": "3001234567",
+  "email": "john@example.com",
+  "address": "123 Main St, City"
+}
+```
+
+## Troubleshooting
+
+### Common Issues
+
+**1. "Cannot connect to database"**
+- Check your MySQL server is running
+- Verify credentials in `.env` file
+- Make sure database exists
+
+**2. "Port 3001 already in use"**
+- Change PORT in `.env` file
+- Or stop other applications using port 3001
+
+**3. "Live Server not working"**
+- Install Live Server extension
+- Right-click on `index.html` and select "Open with Live Server"
+
+**4. "Import script fails"**
+- Check file format (Excel/CSV supported)
+- Verify column names match expected format
+- Check database connection
+
+## Project Structure
+
+```
+project/
+├── backend/
+│   ├── controllers/
+│   │   └── controllersCustomers.js
+│   ├── models/
+│   │   └── database.js
+│   ├── routers/
+│   │   └── customers.js
+│   ├── server.js
+│   └── .env
+├── frontend/
+│   ├── src/
+│   │   └── app.js
+│   ├── style/
+│   │   └── style.css
+│   └── index.html
+├── importData.js
+├── pd_alvaro_noriega_macondo.sql
+└── README.md
+```
+
+## Contributing
+
+1. Fork the project
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
 
 
-## Instalación y ejecución
+---
 
-1. Clona el repositorio:
-
-   git clone [https://github.com/tu-usuario/riwi.git](https://github.com/tu-usuario/riwi.git)
-   cd riwi
-
-
-2. (Opcional) Crea y activa un entorno virtual:
- 
-python -m venv venv
-# Windows
-env\Scripts\activate
-# macOS/Linux
-source venv/bin/activate
-
-3. Ejecuta el programa:
-
-python main.py
-
-
-## Uso
-
-Al iniciar el programa, se mostrará un menú con las siguientes opciones:
-
-    1. Añadir productos**: Solicita nombre, precio y cantidad para crear un nuevo registro.
-    2. Consultar producto**: Permite buscar un producto por nombre.
-    3. Actualizar precio**: Solicita nombre y nuevo precio para un producto existente.
-    4. Eliminar producto**: Borra un producto del inventario.
-    5. Mostrar inventario**: Muestra la lista completa de productos.
-    6. Calcular valor total**: Muestra la suma total (precio × cantidad) de los productos.
-    7. Salir: Cierra el programa.
-
-Cada opción validará las entradas para evitar datos inválidos.
-
-## Ejemplo de ejecución
-python main.py
-
-Bienvenido al sistema de Gestión de Inventario Riwi
-
---- Menú de opciones ---
-1. Añadir productos.
-Elija una opción: 1
-
-Ingrese el nombre del producto: Cuaderno
-Ingrese el precio del producto: 2500
-Ingrese la cantidad del producto: 3
-Cuaderno: 2500.0 x 3 = 7500.0
-
---- Menú de opciones ---
-1. Añadir productos.
-2. Consultar producto.
-3. Actualizar precio.
-4. Eliminar producto.
-5. Mostrar inventario.
-6. Calcular valor total del inventario.
-7. Salir.
-Elija una opción: 6
-El valor total del inventario es: 7500.0
-
---- Menú de opciones ---
-Elija una opción: 7
-Gracias por usar nuestros servicios. ¡Hasta luego!
-
-
+**Happy coding! 🎉**
