@@ -44,7 +44,7 @@
 /* About section content layout */
 .about-section__content {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr;
     gap: 3rem;
     align-items: start;
 }
